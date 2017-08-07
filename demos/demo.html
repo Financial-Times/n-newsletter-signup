@@ -1,18 +1,7 @@
-<div class="myft-newsletter">
-	<div class="myft-newsletter__header">
-		<h3 class="myft-newsletter__heading">{{name}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h3>
-		{{#if isPremium}}<span aria-hidden="true" class="myft-newsletter__top-meta o-labels o-labels--premium">Premium</span>{{/if}}
-	</div>
-	<div data-component="newsletter-description" class="myft-newsletter__description">
-		<p class="myft-newsletter__description myft-body-copy">{{description}}</p>
-		<div aria-hidden="true" class="myft-newsletter__meta">{{frequency}}</div>
-	</div>
-
-	{{#if userNeedsToUpgrade}}
-		<div>
-			<a href="/products?location=/newsletters" class="o-buttons o-buttons--big" data-trackable="newsletters-upgrade">Upgrade<span class="n-util-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
+<div class="o-grid-container">
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="12 S6 M4 L3">
+			{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
 		</div>
-	{{else}}
-		{{>newsletter-form}}
-	{{/if}}
+	</div>
 </div>

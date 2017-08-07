@@ -14,7 +14,7 @@ unit-test:
 demo-build:
 	@rm -rf bower_components/n-newsletter-signup
 	@mkdir bower_components/n-newsletter-signup
-	# @cp -r templates/ bower_components/n-newsletter-signup/templates/
+	@cp -r templates/ bower_components/n-newsletter-signup/templates/
 	@node-sass demos/src/main.scss public/main.css --include-path bower_components
 	@$(DONE)
 
