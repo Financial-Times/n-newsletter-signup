@@ -10,6 +10,7 @@
   "dependencies": {
     "o-buttons": "^5.1.0",
     "o-labels": "^3.0.0",
-    "o-colors": "^4.1.1"
+    "o-colors": "^4.1.1",
+    "n-myft-ui": "^7.2.0"
   }
 }

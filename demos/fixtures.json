@@ -1,11 +1,6 @@
 {
-	"type": "manual",
-	"id": 98765,
 	"name": "FT",
-	"subscriptionLevel": "Premium",
-	"inactive": false,
-	"longDesc": "FT FT FT",
-	"imageUrl": "https://www.ft.com/__assets/ft.jpg",
+	"isPremium": true,
 	"frequency": "daily",
 	"description": "News, analysis and comment from the Financial Times, the world's leading global business publication."
 }

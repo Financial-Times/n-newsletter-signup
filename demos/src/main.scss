@@ -1,3 +1,5 @@
+@import 'n-ui/main';
+
 $o-colors-is-silent: false;
 @import 'o-colors/main';
 
@@ -5,7 +7,15 @@ $o-labels-is-silent: false;
 @import 'o-labels/main';
 
 $o-buttons-is-silent: false;
-@import 'o-buttons/main';
+@import 'n-myft-ui/myft-common/main';
+$o-buttons-is-silent: true;
+
+@include nUiMyftCommon(false);
+//important! Including n-utils-hide here to overwirte the dominant origami display: in-line property
+.n-util-hide {
+	display: none;
+};
+
 
 $o-grid-gutter-small: oGridGutter(S);
 
@@ -71,10 +81,6 @@ $o-grid-gutter-small: oGridGutter(S);
 	right: 16px;
 }
 
-.myft-newsletter__top-meta {
-	@include oTypographySansBold($scale: 0);
-}
-
 .myft-newsletter__heading {
 	display: inline-block;
 	margin: 10px 10px 10px 0;
@@ -86,6 +92,8 @@ $o-grid-gutter-small: oGridGutter(S);
 
 
 .myft-newsletter__description {
+	@include oTypographySans($scale: 1);
+	font-size: 18px;
 	flex-grow: 1;
 	margin: 12px 0 0 0;
 }
