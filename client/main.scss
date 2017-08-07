@@ -1,0 +1,113 @@
+$o-labels-is-silent: false;
+@import 'o-labels/main';
+
+
+$o-grid-gutter-small: oGridGutter(S);
+
+.myft-newsletter-list {
+	padding: 0;
+}
+
+// Specificity war with o-grid 🙁
+.myft-newsletter-list .myft-newsletter-container {
+	display: flex;
+}
+
+//TODO: refactor the feedback-messaging solution when we have a better picture of what will live in the Recommendations section
+[data-component='recommendations-section'] .myft-newsletter-container {
+	display: block;
+}
+
+.myft-newsletter-container--tall {
+	margin-bottom: 28px;
+}
+
+.myft-newsletter {
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+
+	&::after  {
+		content: '';
+		display: block;
+		margin-top: 21px;
+		border-bottom: 1px solid getColor('black-20');
+	}
+}
+
+.myft-newsletter-list--topper {
+	.myft-newsletter__header {
+		background-color: getColor('claret');
+		color: white;
+		padding: 5px 12px;
+		display: flex;
+		min-height: 100px;
+		position: relative;
+		box-sizing: border-box;
+
+		// cancel-out o-grid margin for mobile card
+		@include oGridRespondTo($until: S) {
+			left: -$o-grid-gutter-small;
+			width: calc(100% + #{$o-grid-gutter-small * 2});
+		}
+	}
+
+	.myft-newsletter__heading {
+		@include oTypographyDisplayBold($scale: 2);
+
+		align-self: flex-end;
+		margin: 0;
+
+		// for IE<11
+		max-width: 100%;
+		flex-shrink: 1;
+		padding-top: 20px;
+		// 😢
+		font-size: 30px;
+		line-height: 30px;
+
+		@include oGridRespondTo($from: M, $until: XL) {
+			font-size: 24px;
+			line-height: 28px
+		}
+		@include oGridRespondTo($until: S) {
+			font-size: 40px;
+			line-height: 40px
+		}
+	}
+
+	.myft-newsletter__top-meta {
+		@include oTypographySansBold($scale: 0);
+		position: absolute;
+		top: 0;
+		right: 16px;
+	}
+}
+
+.myft-newsletter__top-meta {
+	@include oTypographySansBold($scale: 0);
+}
+
+.myft-newsletter__heading {
+	display: inline-block;
+	margin: 10px 10px 10px 0;
+}
+
+.myft-newsletter__description {
+	display: inline-block;
+}
+
+
+.myft-newsletter__description {
+	flex-grow: 1;
+	margin: 12px 0 0 0;
+}
+
+.myft-newsletter__meta {
+	@include oTypographySans($scale: -2);
+	text-transform: uppercase;
+	color: getColor('black-60');
+	margin: 16px 0;
+}

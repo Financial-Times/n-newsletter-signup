@@ -1,0 +1,10 @@
+{
+	"type": "manual",
+	"id": 98765,
+	"name": "alpha",
+	"subscriptionLevel": "Premium",
+	"inactive": false,
+	"longDesc": "Alpha Alpha Alpha",
+	"imageUrl": "https://www.ft.com/__assets/bar.jpg",
+	"frequency": "daily"
+}
