@@ -1,11 +1,11 @@
-<div class="myft-newsletter">
-	<div class="myft-newsletter__header">
-		<h3 class="myft-newsletter__heading">{{name}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h3>
-		{{#if isPremium}}<span aria-hidden="true" class="myft-newsletter__top-meta o-labels o-labels--premium">Premium</span>{{/if}}
+<section class="newsletter-signup">
+	<div class="newsletter-signup__header">
+		<h3 class="newsletter-signup__heading">{{name}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h3>
+		{{#if isPremium}}<span aria-hidden="true" class="newsletter-signup__top-meta o-labels o-labels--premium">Premium</span>{{/if}}
 	</div>
-	<div data-component="newsletter-description" class="myft-newsletter__description">
-		<p class="myft-newsletter__description myft-body-copy">{{description}}</p>
-		<div aria-hidden="true" class="myft-newsletter__meta">{{frequency}}</div>
+	<div data-component="newsletter-description" class="newsletter-signup__description">
+		<p class="newsletter-signup__description myft-body-copy">{{description}}</p>
+		<div aria-hidden="true" class="newsletter-signup__meta">{{frequency}}</div>
 	</div>
 
 	{{#if userNeedsToUpgrade}}
@@ -15,4 +15,4 @@
 	{{else}}
 		{{> n-newsletter-signup/templates/partials/newsletter-form}}
 	{{/if}}
-</div>
+</section>

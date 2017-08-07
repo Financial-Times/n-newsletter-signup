@@ -1,25 +1,17 @@
 @import 'n-ui/main';
 
-$o-colors-is-silent: false;
+$o-colors-is-silent: true;
 @import 'o-colors/main';
+
+$o-buttons-is-silent: true;
+@import 'o-buttons/main';
 
 $o-labels-is-silent: false;
 @import 'o-labels/main';
 
-$o-buttons-is-silent: false;
-@import 'n-myft-ui/myft-common/main';
-$o-buttons-is-silent: true;
-
-@include nUiMyftCommon(false);
-//important! Including n-utils-hide here to overwirte the dominant origami display: in-line property
-.n-util-hide {
-	display: none;
-};
-
-
 $o-grid-gutter-small: oGridGutter(S);
 
-.myft-newsletter {
+.newsletter-signup {
 	padding-bottom: 20px;
 	display: flex;
 	flex-direction: column;
@@ -34,7 +26,19 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.myft-newsletter__header {
+.newsletter-signup .n-util-hide {
+	display: none;
+};
+
+.newsletter-signup .o-buttons {
+	@include oButtons();
+}
+
+.newsletter-signup .o-buttons--big {
+	@include oButtonsSize(big);
+}
+
+.newsletter-signup__header {
 	background-color: oColorsGetPaletteColor('claret');
 	color: white;
 	padding: 5px 12px;
@@ -50,7 +54,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.myft-newsletter__heading {
+.newsletter-signup__heading {
 	@include oTypographyDisplayBold($scale: 2);
 
 	align-self: flex-end;
@@ -74,31 +78,31 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.myft-newsletter__top-meta {
+.newsletter-signup__top-meta {
 	@include oTypographySansBold($scale: 0);
 	position: absolute;
 	top: 0;
 	right: 16px;
 }
 
-.myft-newsletter__heading {
+.newsletter-signup__heading {
 	display: inline-block;
 	margin: 10px 10px 10px 0;
 }
 
-.myft-newsletter__description {
+.newsletter-signup__description {
 	display: inline-block;
 }
 
 
-.myft-newsletter__description {
+.newsletter-signup__description {
 	@include oTypographySans($scale: 1);
 	font-size: 18px;
 	flex-grow: 1;
 	margin: 12px 0 0 0;
 }
 
-.myft-newsletter__meta {
+.newsletter-signup__meta {
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: oColorsGetPaletteColor('black-60');
