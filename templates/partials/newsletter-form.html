@@ -1,5 +1,5 @@
 <form
-	data-component="newsletter-form"
+	data-component="n-newsletter-signup-form"
 	data-newsletter-id="{{id}}"
 	action="
 		{{~#if userIsSubscribed~}}
@@ -10,7 +10,7 @@
 		"
 	method="POST"
 	>
-	<script data-model="newsletter-form" type="text/json">{{{json @this}}}</script>
+	<script data-model="n-newsletter-signup-form" type="text/json">{{{json @this}}}</script>
 	<button
 		class="o-buttons o-buttons--big"
 		aria-label="

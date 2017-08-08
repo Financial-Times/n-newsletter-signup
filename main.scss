@@ -1,17 +1,9 @@
-@import 'n-ui/main';
-
-$o-colors-is-silent: true;
-@import 'o-colors/main';
-
-$o-buttons-is-silent: true;
-@import 'o-buttons/main';
-
 $o-labels-is-silent: false;
 @import 'o-labels/main';
 
 $o-grid-gutter-small: oGridGutter(S);
 
-.newsletter-signup {
+.n-newsletter-signup {
 	padding-bottom: 20px;
 	display: flex;
 	flex-direction: column;
@@ -26,19 +18,19 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.newsletter-signup .n-util-hide {
+.n-newsletter-signup .n-util-hide {
 	display: none;
 };
 
-.newsletter-signup .o-buttons {
+.n-newsletter-signup .o-buttons {
 	@include oButtons();
 }
 
-.newsletter-signup .o-buttons--big {
+.n-newsletter-signup .o-buttons--big {
 	@include oButtonsSize(big);
 }
 
-.newsletter-signup__header {
+.n-newsletter-signup__header {
 	background-color: oColorsGetPaletteColor('claret');
 	color: white;
 	padding: 5px 12px;
@@ -54,7 +46,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.newsletter-signup__heading {
+.n-newsletter-signup__heading {
 	@include oTypographyDisplayBold($scale: 2);
 
 	align-self: flex-end;
@@ -78,31 +70,31 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.newsletter-signup__top-meta {
+.n-newsletter-signup__top-meta {
 	@include oTypographySansBold($scale: 0);
 	position: absolute;
 	top: 0;
 	right: 16px;
 }
 
-.newsletter-signup__heading {
+.n-newsletter-signup__heading {
 	display: inline-block;
 	margin: 10px 10px 10px 0;
 }
 
-.newsletter-signup__description {
+.n-newsletter-signup__description {
 	display: inline-block;
 }
 
 
-.newsletter-signup__description {
+.n-newsletter-signup__description {
 	@include oTypographySans($scale: 1);
 	font-size: 18px;
 	flex-grow: 1;
 	margin: 12px 0 0 0;
 }
 
-.newsletter-signup__meta {
+.n-newsletter-signup__meta {
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: oColorsGetPaletteColor('black-60');
