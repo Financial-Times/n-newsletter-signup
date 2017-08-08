@@ -10,7 +10,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	position: relative;
 	width: 100%;
 
-	&::after  {
+	&::after {
 		content: '';
 		display: block;
 		margin-top: 21px;
@@ -62,11 +62,11 @@ $o-grid-gutter-small: oGridGutter(S);
 
 	@include oGridRespondTo($from: M, $until: XL) {
 		font-size: 24px;
-		line-height: 28px
+		line-height: 28px;
 	}
 	@include oGridRespondTo($until: S) {
 		font-size: 40px;
-		line-height: 40px
+		line-height: 40px;
 	}
 }
 
@@ -91,7 +91,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oTypographySans($scale: 1);
 	font-size: 18px;
 	flex-grow: 1;
-	margin: 12px 0 0 0;
+	margin: 12px 0 0;
 }
 
 .n-newsletter-signup__meta {
