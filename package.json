@@ -22,7 +22,9 @@
   "devDependencies": {
     "@financial-times/n-gage": "^1.8.25",
     "@financial-times/n-internal-tool": "^2.1.0",
+    "bower-resolve-webpack-plugin": "^1.0.4",
     "node-sass": "^4.5.3",
-    "pa11y-ci": "^1.2.0"
+    "pa11y-ci": "^1.2.0",
+    "webpack": "^3.5.2"
   }
 }
