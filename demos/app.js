@@ -29,8 +29,29 @@ app.get('/', (req, res) => {
 	}, fixtures));
 });
 
-app.post('', (req, res) => {
-	
+app.post('/n-newsletter-signup/subscribe', (req, res) => {
+	const response = {
+		"message": "Successfully subscribed to 12345",
+		"model": {
+			"subscribedNewsletters": {
+				"title": "Title",
+				"newsletters": [{
+					"isPremium": true,
+					"referenceId": "ft",
+					"unsubscribeAction": "/n-newsletter-signup/unsubscribe",
+					"subscribeAction": "/n-newsletter-signup/subscribe",
+					"id": "12345",
+					"name": "FT",
+					"subscriptionLevel": "Premium",
+					"inactive": false,
+					"description": "News, analysis and comment from the Financial Times, the world's leading global business publication.",
+					"frequency": "daily",
+					"userIsSubscribed": true
+				}]
+			}
+		}
+	};
+	res.send(JSON.stringify(response));
 })
 
 function runPa11yTests () {

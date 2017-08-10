@@ -5,5 +5,5 @@
 	"frequency": "daily",
 	"description": "News, analysis and comment from the Financial Times, the world's leading global business publication.",
 	"userIsSubscribed": false,
-	"subscribeAction": ""
+	"subscribeAction": "/n-newsletter-signup/subscribe"
 }
