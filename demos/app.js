@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
 	}, fixtures));
 });
 
+app.post('', (req, res) => {
+	
+})
+
 function runPa11yTests () {
 	const spawn = require('child_process').spawn;
 	const pa11y = spawn('pa11y-ci');
