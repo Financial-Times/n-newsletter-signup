@@ -16,12 +16,12 @@ class Newsletter {
 			this.options = {
 					newsletterId: el.dataset.newsletterId
 			};
-			this.feedback = new Feedback(`feedback-message__newsletter`);
+			this.feedback = new Feedback('feedback-message__newsletter');
 			this.init(this.el);
 			this.feedback.append(this.el.querySelector('form'));
 	}
 
-	init (el) {
+	init () {
 		this.form.addEventListener('submit', (event) => {
 			event.preventDefault();
 			this.handleSignup(event);

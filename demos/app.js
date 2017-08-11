@@ -31,17 +31,17 @@ app.get('/', (req, res) => {
 
 app.post('/n-newsletter-signup/subscribe', (req, res) => {
 	const data = {
-					"isPremium": true,
-					"referenceId": "ft",
-					"unsubscribeAction": "/n-newsletter-signup/unsubscribe",
-					"subscribeAction": "/n-newsletter-signup/subscribe",
-					"id": "12345",
-					"name": "FT",
-					"subscriptionLevel": "Premium",
-					"inactive": false,
-					"description": "News, analysis and comment from the Financial Times, the world's leading global business publication.",
-					"frequency": "daily",
-					"userIsSubscribed": true
+					'isPremium': true,
+					'referenceId': 'ft',
+					'unsubscribeAction': '/n-newsletter-signup/unsubscribe',
+					'subscribeAction': '/n-newsletter-signup/subscribe',
+					'id': '12345',
+					'name': 'FT',
+					'subscriptionLevel': 'Premium',
+					'inactive': false,
+					'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
+					'frequency': 'daily',
+					'userIsSubscribed': true
 				}
 	res.json(data);
 });
