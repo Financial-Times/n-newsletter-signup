@@ -77,7 +77,11 @@ class Newsletter {
 			buttonDataTrackable = 'newsletter-unsubscribe';
 			buttonText = `Unsubscribe<span class="n-util-visually-hidden">&nbsp;from ${data.name}</span>`;
 		} else {
-
+			formAction = data.subscribeAction;
+			buttonAriaLabel = `Subscribe to ${data.name}`;
+			buttonTitle = `Subscribe to ${data.name}`;
+			buttonDataTrackable = 'newsletter-subscribe';
+			buttonText = `One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to ${data.name}</span>`;
 		}
 		this.form.action = formAction;
 		buttonEl.setAttribute('aria-label', buttonAriaLabel);
