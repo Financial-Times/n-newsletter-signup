@@ -12,17 +12,16 @@ const apiOptions = {
 class Newsletter {
 	constructor (el) {
 			this.el = el;
-			this.form = this.el.querySelector('[data-component="n-newsletter-signup-form"]');
-			this.options = {
-					newsletterId: el.dataset.newsletterId
-			};
-			this.feedback = new Feedback('feedback-message__newsletter');
-			this.init(this.el);
-			this.feedback.append(this.el.querySelector('form'));
+			this.newsletterName = el.dataset.newsletterName;
+			this.newsletterForm = el.querySelector('form');
+			this.newsletterId = el.dataset.newsletterId;
+			this.feedback = new Feedback(`feedback-message__${this.newsletterName}`);
+			this.init(el);
+			this.feedback.append(this.newsletterForm);
 	}
 
 	init () {
-		this.form.addEventListener('submit', (event) => {
+		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
 			this.handleSignup(event);
 		});
@@ -32,14 +31,14 @@ class Newsletter {
 		event.preventDefault();
 		const url = event.target.action;
 		this.el.setAttribute('aria-busy', 'true');
-		this.feedback.update('update', `Updating subscription to ${this.el.dataset.newsletterName}`, this.el);
+		this.feedback.update('update', `Updating subscription to ${this.newsletterName}`, this.el);
 		this.callApi(url);
 	}
 
 	update (data) {
 		if (data) {
 			const timestamp = getTimestamp(new Date);
-			const message = `Successfully updated your ${this.el.dataset.newsletterName} subscription preference ${timestamp}`;
+			const message = `Successfully updated your ${this.newsletterName} subscription preference ${timestamp}`;
 			this.render(data);
 			this.feedback.update('success', message, this.el);
 			this.el.setAttribute('aria-busy', 'false');
@@ -56,7 +55,7 @@ class Newsletter {
 				}
 			})
 			.catch(err => {
-				this.feedback.update('error', `Something went wrong updating your subscription to ${this.el.dataset.newsletterName}. Please try again.`, this.el);
+				this.feedback.update('error', `Something went wrong updating your subscription to ${this.newsletterName}. Please try again.`, this.el);
 				this.el.setAttribute('aria-busy', 'false');
 				throw err;
 			});
@@ -83,12 +82,12 @@ class Newsletter {
 			buttonText = `One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to ${data.name}</span>`;
 		}
 
-		this.form.action = formAction;
-		let buttonEl = this.el.querySelector('.n-newsletter-signup-button');
-		buttonEl.setAttribute('aria-label', buttonAriaLabel);
-		buttonEl.title = buttonTitle;
-		buttonEl.dataset.trackable = buttonDataTrackable;
-		buttonEl.innerHTML = buttonText;
+		this.newsletterForm.action = formAction;
+		let newsletterButton = this.el.querySelector('.n-newsletter-signup-button');
+		newsletterButton.setAttribute('aria-label', buttonAriaLabel);
+		newsletterButton.title = buttonTitle;
+		newsletterButton.dataset.trackable = buttonDataTrackable;
+		newsletterButton.innerHTML = buttonText;
 	}
 
 }
