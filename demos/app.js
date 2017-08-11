@@ -42,7 +42,7 @@ app.post('/n-newsletter-signup/subscribe', (req, res) => {
 					'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
 					'frequency': 'daily',
 					'userIsSubscribed': true
-				}
+				};
 	res.json(data);
 });
 
@@ -59,7 +59,7 @@ app.post('/n-newsletter-signup/unsubscribe', (req, res) => {
 					'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
 					'frequency': 'daily',
 					'userIsSubscribed': false
-				}
+				};
 	res.json(data);
 });
 
