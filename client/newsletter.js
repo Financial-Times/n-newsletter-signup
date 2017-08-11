@@ -68,7 +68,6 @@ class Newsletter {
 		let buttonTitle;
 		let buttonDataTrackable;
 		let buttonText;
-		let buttonEl = this.el.querySelector('.n-newsletter-signup-button');
 
 		if (data.userIsSubscribed) {
 			formAction = data.unsubscribeAction;
@@ -83,7 +82,9 @@ class Newsletter {
 			buttonDataTrackable = 'newsletter-subscribe';
 			buttonText = `One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to ${data.name}</span>`;
 		}
+		
 		this.form.action = formAction;
+		let buttonEl = this.el.querySelector('.n-newsletter-signup-button');
 		buttonEl.setAttribute('aria-label', buttonAriaLabel);
 		buttonEl.title = buttonTitle;
 		buttonEl.dataset.trackable = buttonDataTrackable;
