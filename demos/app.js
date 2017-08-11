@@ -30,12 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/n-newsletter-signup/subscribe', (req, res) => {
-	const response = {
-		"message": "Successfully subscribed to 12345",
-		"model": {
-			"subscribedNewsletters": {
-				"title": "Title",
-				"newsletters": [{
+	const data = {
 					"isPremium": true,
 					"referenceId": "ft",
 					"unsubscribeAction": "/n-newsletter-signup/unsubscribe",
@@ -47,12 +42,9 @@ app.post('/n-newsletter-signup/subscribe', (req, res) => {
 					"description": "News, analysis and comment from the Financial Times, the world's leading global business publication.",
 					"frequency": "daily",
 					"userIsSubscribed": true
-				}]
-			}
-		}
-	};
-	res.send(JSON.stringify(response));
-})
+				}
+	res.json(data);
+});
 
 function runPa11yTests () {
 	const spawn = require('child_process').spawn;

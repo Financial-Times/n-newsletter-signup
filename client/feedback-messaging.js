@@ -16,7 +16,6 @@ class Feedback {
 
 	static updatePresentation (html, state) {
 		html.classList.add(`n-newsletter-signup-feedback--${state}`);
-		console.log('state', state);
 
 		if (state === 'error') {
 			html.classList.remove('n-newsletter-signup-feedback--hidden');

@@ -10,7 +10,6 @@
 		"
 	method="POST"
 	>
-	<script data-model="n-newsletter-signup-form" type="text/json">{{{json @this}}}</script>
 	<button
 		class="n-newsletter-signup-button o-buttons o-buttons--big"
 		aria-label="
@@ -44,7 +43,7 @@
 			{{else if userIsSubscribed}}
 				Unsubscribe<span class="n-util-visually-hidden">&nbsp;from {{name}}</span>
 			{{else}}
-				Sign up<span class="n-util-visually-hidden">&nbsp;to {{name}}</span>
+				One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to {{name}}</span>
 			{{/if}}
 		</button>
 </form>
