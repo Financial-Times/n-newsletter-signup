@@ -1,6 +1,5 @@
 // const session = require('next-session-client');
 const Feedback = require('./feedback-messaging');
-const getTimestamp = require('./timestamp');
 const apiOptions = {
 	method: 'POST',
 	credentials: 'same-origin',
@@ -15,9 +14,8 @@ class Newsletter {
 			this.newsletterName = el.dataset.newsletterName;
 			this.newsletterForm = el.querySelector('form');
 			this.newsletterId = el.dataset.newsletterId;
-			this.feedback = new Feedback(`feedback-message__${this.newsletterName}`);
+			this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
 			this.init();
-			this.feedback.append(this.newsletterForm);
 	}
 
 	init () {
@@ -31,16 +29,14 @@ class Newsletter {
 		event.preventDefault();
 		const url = event.target.action;
 		this.el.setAttribute('aria-busy', 'true');
-		this.feedback.update('update', `Updating subscription to ${this.newsletterName}`, this.el);
+		this.feedback.update('update');
 		this.callApi(url);
 	}
 
 	update (data) {
 		if (data) {
-			const timestamp = getTimestamp(new Date);
-			const message = `Successfully updated your ${this.newsletterName} subscription preference ${timestamp}`;
 			this.render(data);
-			this.feedback.update('success', message, this.el);
+			this.feedback.update('success');
 			this.el.setAttribute('aria-busy', 'false');
 		}
 	}
@@ -55,7 +51,7 @@ class Newsletter {
 				}
 			})
 			.catch(err => {
-				this.feedback.update('error', `Something went wrong updating your subscription to ${this.newsletterName}. Please try again.`, this.el);
+				this.feedback.update('error');
 				this.el.setAttribute('aria-busy', 'false');
 				throw err;
 			});
