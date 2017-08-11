@@ -16,7 +16,7 @@ class Newsletter {
 			this.newsletterForm = el.querySelector('form');
 			this.newsletterId = el.dataset.newsletterId;
 			this.feedback = new Feedback(`feedback-message__${this.newsletterName}`);
-			this.init(el);
+			this.init();
 			this.feedback.append(this.newsletterForm);
 	}
 
