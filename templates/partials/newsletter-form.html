@@ -1,5 +1,5 @@
 <form
-	data-component="n-newsletter-signup-form"
+	data-component="n-newsletter-signup__form"
 	data-newsletter-id="{{id}}"
 	action="
 		{{~#if userIsSubscribed~}}
@@ -10,9 +10,8 @@
 		"
 	method="POST"
 	>
-	<script data-model="n-newsletter-signup-form" type="text/json">{{{json @this}}}</script>
 	<button
-		class="o-buttons o-buttons--big"
+		class="n-newsletter-signup__submit"
 		aria-label="
 			{{~#if userIsSubscribed~}}
 				Unsubscribe from {{name}}
@@ -44,7 +43,7 @@
 			{{else if userIsSubscribed}}
 				Unsubscribe<span class="n-util-visually-hidden">&nbsp;from {{name}}</span>
 			{{else}}
-				Sign up<span class="n-util-visually-hidden">&nbsp;to {{name}}</span>
+				One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to {{name}}</span>
 			{{/if}}
 		</button>
 </form>
