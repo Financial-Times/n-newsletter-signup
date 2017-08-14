@@ -23,11 +23,11 @@ class Newsletter {
 	init () {
 		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
-			this.handleSignup(event);
+			this.handleSubmit(event);
 		});
 	}
 
-	handleSignup (event) {
+	handleSubmit (event) {
 		event.preventDefault();
 		const url = event.target.action;
 		this.el.setAttribute('aria-busy', 'true');
