@@ -21,11 +21,11 @@ class Newsletter {
 	init () {
 		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
-			this.handleSignup(event);
+			this.handleSubmit(event);
 		});
 	}
 
-	handleSignup (event) {
+	handleSubmit (event) {
 		event.preventDefault();
 		const url = event.target.action;
 		this.el.setAttribute('aria-busy', 'true');
@@ -79,7 +79,7 @@ class Newsletter {
 		}
 
 		this.newsletterForm.action = formAction;
-		let newsletterButton = this.el.querySelector('.n-newsletter-signup-button');
+		let newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
 		newsletterButton.setAttribute('aria-label', buttonAriaLabel);
 		newsletterButton.title = buttonTitle;
 		newsletterButton.dataset.trackable = buttonDataTrackable;

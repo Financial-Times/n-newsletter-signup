@@ -3,14 +3,14 @@
 		<h3 class="n-newsletter-signup__heading">{{name}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h3>
 		{{#if isPremium}}<span aria-hidden="true" class="n-newsletter-signup__top-meta o-labels o-labels--premium">Premium</span>{{/if}}
 	</div>
-	<div data-component="n-newsletter-signup-description" class="n-newsletter-signup__description">
+	<div data-component="n-newsletter-signup__description" class="n-newsletter-signup__description">
 		<p class="n-newsletter-signup__description">{{description}}</p>
 		<div aria-hidden="true" class="n-newsletter-signup__meta">{{frequency}}</div>
 	</div>
 
 	{{#if userNeedsToUpgrade}}
 		<div>
-			<a href="/products?location=/newsletters" class="o-buttons o-buttons--big" data-trackable="newsletters-upgrade">Upgrade<span class="n-util-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
+			<a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade" data-trackable="newsletters-upgrade">Upgrade<span class="n-util-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
 		</div>
 	{{else}}
 		{{> n-newsletter-signup/templates/partials/newsletter-form}}

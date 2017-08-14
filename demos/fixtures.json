@@ -1,8 +1,8 @@
 {
 	"isPremium": true,
 	"referenceId": "ft",
-	"unsubscribeAction": "/n-newsletter-signup/unsubscribe",
-	"subscribeAction": "/n-newsletter-signup/subscribe",
+	"unsubscribeAction": "/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe?redirect=/newsletters/",
+	"subscribeAction": "/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe?redirect=/newsletters/",
 	"id": "12345",
 	"name": "FT",
 	"subscriptionLevel": "Premium",
