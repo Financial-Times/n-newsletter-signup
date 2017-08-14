@@ -1,4 +1,4 @@
-.n-newsletter-signup-feedback {
+.n-newsletter-signup__feedback {
 	display: inline-block;
 	width: 100%;
 	box-sizing: border-box;
@@ -7,11 +7,11 @@
 	font-size: 18px;
 }
 
-.n-newsletter-signup-feedback--error {
+.n-newsletter-signup__feedback--error {
 	background: getColor('wheat');
 	color: getColor('crimson');
 }
 
-.n-newsletter-signup-feedback--hidden {
+.n-newsletter-signup__feedback--hidden {
 	@include nUtilsVisuallyHidden();
 }

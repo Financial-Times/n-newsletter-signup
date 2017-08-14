@@ -1,6 +1,9 @@
 $o-labels-is-silent: false;
 @import 'o-labels/main';
 
+$o-buttons-is-silent: true;
+@import 'o-buttons/main';
+
 $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup {
@@ -18,17 +21,23 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.n-newsletter-signup .n-util-hide {
+.n-newsletter-signup__submit {
+	@include oButtons();
+	@include oButtonsSize(big);
+}
+
+.n-newsletter-signup__submit .n-util-hide {
 	display: none;
 };
 
-.n-newsletter-signup .o-buttons {
+.n-newsletter-signup__upgrade {
 	@include oButtons();
-}
-
-.n-newsletter-signup .o-buttons--big {
 	@include oButtonsSize(big);
 }
+
+.n-newsletter-signup__upgrade .n-util-hide {
+	display: none;
+};
 
 .n-newsletter-signup__header {
 	background-color: getColor('claret');
@@ -84,10 +93,6 @@ $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup__description {
 	display: inline-block;
-}
-
-
-.n-newsletter-signup__description {
 	@include oTypographySans($scale: 1);
 	font-size: 18px;
 	flex-grow: 1;

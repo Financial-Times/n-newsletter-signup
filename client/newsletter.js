@@ -83,7 +83,7 @@ class Newsletter {
 		}
 
 		this.newsletterForm.action = formAction;
-		let newsletterButton = this.el.querySelector('.n-newsletter-signup-button');
+		let newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
 		newsletterButton.setAttribute('aria-label', buttonAriaLabel);
 		newsletterButton.title = buttonTitle;
 		newsletterButton.dataset.trackable = buttonDataTrackable;

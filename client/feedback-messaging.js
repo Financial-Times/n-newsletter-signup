@@ -9,16 +9,16 @@ class Feedback {
 		html.dataset.component = 'feedback';
 		html.setAttribute('aria-live', 'polite');
 		html.setAttribute('aria-atomic', 'true');
-		html.classList.add('n-newsletter-signup-feedback');
-		html.classList.add('n-newsletter-signup-feedback--hidden');
+		html.classList.add('n-newsletter-signup__feedback');
+		html.classList.add('n-newsletter-signup__feedback--hidden');
 		html.id = id;
 	}
 
 	static updatePresentation (html, state) {
-		html.classList.add(`n-newsletter-signup-feedback--${state}`);
+		html.classList.add(`n-newsletter-signup__feedback--${state}`);
 
 		if (state === 'error') {
-			html.classList.remove('n-newsletter-signup-feedback--hidden');
+			html.classList.remove('n-newsletter-signup__feedback--hidden');
 		}
 	}
 
