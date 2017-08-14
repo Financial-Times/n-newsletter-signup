@@ -1,63 +1,70 @@
+const getTimestamp = require('./timestamp');
+
 class Feedback {
-	constructor (id) {
+	constructor (parent, name, id) {
+		this.parentHtml = parent;
 		this.html = document.createElement('p');
 		this.state = 'default';
+		this.name = name;
 		this.id = id;
+		this.append(parent);
 	}
 
-	static defaultAttributes (html, id) {
-		html.dataset.component = 'feedback';
-		html.setAttribute('aria-live', 'polite');
-		html.setAttribute('aria-atomic', 'true');
-		html.classList.add('n-newsletter-signup__feedback');
-		html.classList.add('n-newsletter-signup__feedback--hidden');
-		html.id = id;
+	defaultAttributes () {
+		this.html.dataset.component = 'feedback';
+		this.html.setAttribute('aria-live', 'polite');
+		this.html.setAttribute('aria-atomic', 'true');
+		this.html.classList.add('n-newsletter-signup-feedback');
+		this.html.classList.add('n-newsletter-signup-feedback--hidden');
+		this.html.id = `feedback-message__newsletter-${this.id}`;
 	}
 
-	static updatePresentation (html, state) {
-		html.classList.add(`n-newsletter-signup__feedback--${state}`);
+	updatePresentation () {
+		this.html.classList.add(`n-newsletter-signup-feedback--${this.state}`);
 
-		if (state === 'error') {
-			html.classList.remove('n-newsletter-signup__feedback--hidden');
+		if (this.state === 'error') {
+			this.html.classList.remove('n-newsletter-signup-feedback--hidden');
 		}
 	}
 
-	static updateMessage (html, message) {
-		html.innerHTML = message;
+	updateMessage (message) {
+		this.html.innerHTML = message;
 	}
 
-	append (parent) {
-		this.parent = parent;
-
-		if (!this.parent) {
-			return;
-		}
-
-		//TODO ask what this lines are doing
-		if (this.html.parentNode === this.parent) {
-			this.parent.removeChild(this.html);
-		}
-
-		Feedback.defaultAttributes(this.html, this.id);
-		this.parent.appendChild(this.html);
+	append () {
+		this.defaultAttributes();
+		this.parentHtml.appendChild(this.html);
 	}
 
-	update (state, message, updatedParent) {
+	update (state) {
 		this.state = state || this.state;
-		this.message = message;
-		this.parent = updatedParent || this.parent;
+		let message = this.setMessage(state);
 
-		if (!this.parent || !this.message) {
+		if (!message) {
 			return;
 		}
 
-		if (updatedParent) {
-			this.parent.appendChild(this.html);
-		}
-
-		Feedback.updatePresentation(this.html, this.state);
-		Feedback.updateMessage(this.html, this.message);
+		this.updatePresentation();
+		this.updateMessage(message);
 	}
+
+	setMessage (state) {
+		const timestamp = getTimestamp(new Date);
+		switch (state) {
+			case 'update':
+				return `Updating subscription to ${this.name}`;
+				break;
+			case 'success':
+				return `Successfully updated your ${this.name} subscription preference ${timestamp}`;
+				break;
+			case 'error':
+				return `Something went wrong updating your subscription to ${this.name}. Please try again.`;
+				break;
+			default:
+				return false;
+		}
+	}
+
 }
 
 module.exports = Feedback;
