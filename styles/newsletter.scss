@@ -1,8 +1,11 @@
-$o-labels-is-silent: false;
+$o-labels-is-silent: true;
 @import 'o-labels/main';
 
 $o-buttons-is-silent: true;
 @import 'o-buttons/main';
+
+$o-icons-is-silent: false;
+@import "o-icons/main";
 
 $o-grid-gutter-small: oGridGutter(S);
 
@@ -24,26 +27,21 @@ $o-grid-gutter-small: oGridGutter(S);
 .n-newsletter-signup__submit {
 	@include oButtons();
 	@include oButtonsSize(big);
+	margin: 14px 0 5px;
+	.n-util-hide {
+		display: none;
+	};
 }
-
-.n-newsletter-signup__submit .n-util-hide {
-	display: none;
-};
 
 .n-newsletter-signup__upgrade {
-	@include oButtons();
-	@include oButtonsSize(big);
+	@extend .n-newsletter-signup__submit
 }
 
-.n-newsletter-signup__upgrade .n-util-hide {
-	display: none;
-};
-
 .n-newsletter-signup__header {
+	display: flex;
 	background-color: getColor('claret');
 	color: white;
 	padding: 5px 12px;
-	display: flex;
 	min-height: 100px;
 	position: relative;
 	box-sizing: border-box;
@@ -56,19 +54,19 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__heading {
-	@include oTypographyDisplayBold($scale: 2);
-
-	align-self: flex-end;
+	display: flex;
 	margin: 0;
-
+	align-self: center;
 	// for IE<11
 	max-width: 100%;
 	flex-shrink: 1;
-	padding-top: 20px;
+}
+
+.n-newsletter-signup__heading__title {
+	@include oTypographyDisplayBold($scale: 2);
 	// 😢
 	font-size: 30px;
 	line-height: 30px;
-
 	@include oGridRespondTo($from: M, $until: XL) {
 		font-size: 24px;
 		line-height: 28px;
@@ -79,16 +77,9 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.n-newsletter-signup__top-meta {
-	@include oTypographySansBold($scale: 0);
-	position: absolute;
-	top: 0;
-	right: 16px;
-}
-
-.n-newsletter-signup__heading {
-	display: inline-block;
-	margin: 10px 10px 10px 0;
+.n-newsletter-signup__heading__mail-icon {
+	@include oIconsGetIcon('mail', getColor('white'), 35);
+	width: 35px;
 }
 
 .n-newsletter-signup__description {
@@ -96,10 +87,15 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oTypographySans($scale: 1);
 	font-size: 18px;
 	flex-grow: 1;
-	margin: 12px 0 0;
+	margin: 12px 0 12px;
 }
 
-.n-newsletter-signup__meta {
+.n-newsletter-signup__meta__premium {
+	@include oLabels('premium', -2);
+	margin: 0 5px 0 0;
+}
+
+.n-newsletter-signup__meta__frequency {
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: getColor('black-60');
