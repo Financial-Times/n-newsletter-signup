@@ -12,6 +12,7 @@
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup",
   "dependencies": {
     "o-labels": "^3.0.0",
-    "o-buttons": "^5.1.0"
+    "o-buttons": "^5.1.0",
+    "n-ui-foundations": "^2.4.0"
   }
 }
