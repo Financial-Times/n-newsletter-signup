@@ -14,16 +14,16 @@ class Feedback {
 		this.html.dataset.component = 'feedback';
 		this.html.setAttribute('aria-live', 'polite');
 		this.html.setAttribute('aria-atomic', 'true');
-		this.html.classList.add('n-newsletter-signup-feedback');
-		this.html.classList.add('n-newsletter-signup-feedback--hidden');
+		this.html.classList.add('n-newsletter-signup__feedback');
+		this.html.classList.add('n-newsletter-signup__feedback--hidden');
 		this.html.id = `feedback-message__newsletter-${this.id}`;
 	}
 
 	updatePresentation () {
-		this.html.classList.add(`n-newsletter-signup-feedback--${this.state}`);
+		this.html.classList.add(`n-newsletter-signup__feedback--${this.state}`);
 
 		if (this.state === 'error') {
-			this.html.classList.remove('n-newsletter-signup-feedback--hidden');
+			this.html.classList.remove('n-newsletter-signup__feedback--hidden');
 		}
 	}
 
