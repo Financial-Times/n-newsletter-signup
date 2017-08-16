@@ -8,9 +8,6 @@ node_modules/@financial-times/n-gage/index.mk:
 
 IGNORE_A11Y = true
 
-unit-test:
-	mocha --recursive --reporter spec tests
-
 demo-build:
 	@rm -rf bower_components/n-newsletter-signup
 	@mkdir bower_components/n-newsletter-signup
@@ -27,4 +24,4 @@ a11y: demo-build
 	@PA11Y=true node demos/app
 	@$(DONE)
 
-test: verify unit-test a11y
+test: verify a11y

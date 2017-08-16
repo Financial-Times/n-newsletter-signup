@@ -1,4 +1,3 @@
-// const session = require('next-session-client');
 const Feedback = require('./feedback-messaging');
 const apiOptions = {
 	method: 'POST',
