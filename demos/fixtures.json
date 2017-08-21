@@ -9,6 +9,5 @@
 	"inactive": false,
 	"description": "Keep up with the most important economics issues every lunchtime with Martin Sandbu’s analysis.",
 	"frequency": "daily",
-	"userIsSubscribed": false,
-	"userNeedsToUpgrade": true
+	"userIsSubscribed": false
 }

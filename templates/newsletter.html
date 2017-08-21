@@ -1,7 +1,10 @@
 <section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup" {{#if isPremium}}data-newsletter-is-premium{{/if}}>
 	<div class="n-newsletter-signup__header">
 		<div class="n-newsletter-signup__heading">
-			<span class="n-newsletter-signup__heading__mail-icon"></span><span class="n-newsletter-signup__heading__title">{{name}} Email<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></span>
+			<div class="n-newsletter-signup__heading__mail-icon__wrapper">
+				<span class="n-newsletter-signup__heading__mail-icon"/>
+			</div>
+			<span class="n-newsletter-signup__heading__title">{{name}} Email<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></span>
 		</div>
 	</div>
 	<div data-component="n-newsletter-signup__description">
