@@ -33,7 +33,12 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__upgrade {
-	@extend .n-newsletter-signup__submit
+	@include oButtons();
+	@include oButtonsSize(big);
+	margin: 14px 0 0;
+	.n-util-hide {
+		display: none;
+	};
 }
 
 .n-newsletter-signup__header {
@@ -81,11 +86,11 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__description {
-	display: inline-block;
 	@include oTypographySans($scale: 1);
+	display: inline-block;
 	font-size: 18px;
 	flex-grow: 1;
-	margin: 12px 0 12px;
+	margin: 12px 0;
 }
 
 .n-newsletter-signup__meta__premium {
