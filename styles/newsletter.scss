@@ -82,7 +82,17 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__heading__mail-icon {
-	@include oIconsGetIcon('mail', getColor('white'), 35);
+	@include oIconsGetIcon('mail', getColor('white'), 40);
+	background-size: 40px 40px;
+	margin-right: 5px;
+	@include oGridRespondTo($from: M, $until: XL) {
+		@include oIconsGetIcon('mail', getColor('white'), 35);
+		background-size: 35px 35px;
+	}
+	@include oGridRespondTo($until: S) {
+		@include oIconsGetIcon('mail', getColor('white'), 50);
+		background-size: 50px 50px;
+	}
 }
 
 .n-newsletter-signup__description {
