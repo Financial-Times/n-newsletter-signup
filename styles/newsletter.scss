@@ -10,7 +10,6 @@ $o-icons-is-silent: false;
 $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup {
-	padding-bottom: 20px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -27,7 +26,7 @@ $o-grid-gutter-small: oGridGutter(S);
 .n-newsletter-signup__submit {
 	@include oButtons();
 	@include oButtonsSize(big);
-	margin: 14px 0 5px;
+	margin: 14px 0 0;
 	.n-util-hide {
 		display: none;
 	};
@@ -79,7 +78,6 @@ $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup__heading__mail-icon {
 	@include oIconsGetIcon('mail', getColor('white'), 35);
-	width: 35px;
 }
 
 .n-newsletter-signup__description {
