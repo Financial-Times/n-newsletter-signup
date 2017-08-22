@@ -1,3 +1,3 @@
-const nNewsletterSignup = require('../../js/main');
+const nNewsletterSignup = require('../../');
 
 nNewsletterSignup.init();
