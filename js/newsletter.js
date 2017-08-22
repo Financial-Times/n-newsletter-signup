@@ -13,6 +13,7 @@ class Newsletter {
 			this.newsletterName = el.dataset.newsletterName;
 			this.newsletterForm = el.querySelector('form');
 			this.newsletterId = el.dataset.newsletterId;
+			this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
 			this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
 			this.init();
 	}
@@ -32,19 +33,17 @@ class Newsletter {
 		this.callApi(url);
 	}
 
-	update (data) {
-		if (data) {
-			this.render(data);
-			this.feedback.update('success');
-			this.el.setAttribute('aria-busy', 'false');
-		}
+	update () {
+		this.render();
+		this.feedback.update('success');
+		this.el.setAttribute('aria-busy', 'false');
 	}
 
 	callApi (url) {
 		fetch(url, apiOptions)
 			.then(res => {
 				if (res.ok) {
-					res.json().then(body => this.update(body));
+					this.update();
 				} else {
 					throw new Error('Bad server response');
 				}
@@ -56,33 +55,39 @@ class Newsletter {
 			});
 	}
 
-	render (data) {
+	render () {
 		let formAction;
 		let buttonAriaLabel;
 		let buttonTitle;
 		let buttonDataTrackable;
 		let buttonText;
 
-		if (data.userIsSubscribed) {
-			formAction = data.unsubscribeAction;
-			buttonAriaLabel = `Unsubscribe from ${data.name}`;
-			buttonTitle = `Unsubscribe from ${data.name}`;
-			buttonDataTrackable = 'newsletter-unsubscribe';
-			buttonText = `Unsubscribe<span class="n-util-visually-hidden">&nbsp;from ${data.name}</span>`;
-		} else {
-			formAction = data.subscribeAction;
-			buttonAriaLabel = `Subscribe to ${data.name}`;
-			buttonTitle = `Subscribe to ${data.name}`;
+		if (this.newsletterForm.action.indexOf('unsubscribe') > -1) {
+			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
+			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
+			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
-			buttonText = `One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to ${data.name}</span>`;
+			buttonText = this.newsletterButton.innerHTML.replace(
+				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from',
+				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
+			);
+		} else {
+			formAction = this.newsletterForm.action.replace('subscribe', 'unsubscribe');
+			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Subscribe to', 'Unsubscribe from');
+			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
+			buttonDataTrackable = 'newsletter-unsubscribe';
+			buttonText = this.newsletterButton.innerHTML.replace(
+				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
+				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from'
+			);
+
 		}
 
 		this.newsletterForm.action = formAction;
-		let newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
-		newsletterButton.setAttribute('aria-label', buttonAriaLabel);
-		newsletterButton.title = buttonTitle;
-		newsletterButton.dataset.trackable = buttonDataTrackable;
-		newsletterButton.innerHTML = buttonText;
+		this.newsletterButton.setAttribute('aria-label', buttonAriaLabel);
+		this.newsletterButton.title = buttonTitle;
+		this.newsletterButton.dataset.trackable = buttonDataTrackable;
+		this.newsletterButton.innerHTML = buttonText;
 	}
 
 }
