@@ -27,23 +27,25 @@ class Newsletter {
 
 	handleSubmit (event) {
 		event.preventDefault();
-		const url = event.target.action;
 		this.el.setAttribute('aria-busy', 'true');
 		this.feedback.update('update');
-		this.callApi(url);
+		const url = event.target.action;
+		const action = url.indexOf('unsubscribe') > -1 ? 'unsubscribe' : 'subscribe';
+		this.callApi(url, action);
 	}
 
-	update () {
-		this.render();
+	update (action) {
+		this.render(action);
 		this.feedback.update('success');
 		this.el.setAttribute('aria-busy', 'false');
 	}
 
-	callApi (url) {
+	callApi (url, action) {
 		fetch(url, apiOptions)
 			.then(res => {
 				if (res.ok) {
-					this.update();
+					this.update(action);
+					this.newsletterForm.dispatchEvent(new CustomEvent(`newsletter.${action}`, { 'detail': this.newsletterId }));
 				} else {
 					throw new Error('Bad server response');
 				}
@@ -55,23 +57,14 @@ class Newsletter {
 			});
 	}
 
-	render () {
+	render (action) {
 		let formAction;
 		let buttonAriaLabel;
 		let buttonTitle;
 		let buttonDataTrackable;
 		let buttonText;
 
-		if (this.newsletterForm.action.indexOf('unsubscribe') > -1) {
-			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
-			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
-			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
-			buttonDataTrackable = 'newsletter-subscribe';
-			buttonText = this.newsletterButton.innerHTML.replace(
-				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from',
-				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
-			);
-		} else {
+		if (action === 'subscribe') {
 			formAction = this.newsletterForm.action.replace('subscribe', 'unsubscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Subscribe to', 'Unsubscribe from');
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
@@ -80,7 +73,15 @@ class Newsletter {
 				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
 				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from'
 			);
-
+		} else {
+			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
+			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
+			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
+			buttonDataTrackable = 'newsletter-subscribe';
+			buttonText = this.newsletterButton.innerHTML.replace(
+				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from',
+				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
+			);
 		}
 
 		this.newsletterForm.action = formAction;
