@@ -17,17 +17,15 @@ Client-side
 import { init as newsletterSignupInit } from './components/newsletter-signup';
 newsletterSignupInit();
 ```
-You may need to reset
-```html
-
-```
+**For the newsletter title, `<h2>` tag is used.**  
+**This may cause a problem on your app with the accessibility!!**
 
 n-newsletter-signup requires at least the following data:
 
- * `unsubscribeAction`
- * `subscribeAction`
+ * `unsubscribeAction` url to unsubscribe via myft api
+ * `subscribeAction` url to subscribe via myft api
  * `id`
- * `name``
+ * `name`
  * `subscriptionLevel`
  * `inactive`
  * `description`
@@ -35,7 +33,7 @@ n-newsletter-signup requires at least the following data:
  * `userIsSubscribed`
 
  * `isPremium`
- * `referenceId`
+ * `referenceId` to jump to the newsletter
 
 Please view the source for more information.
 
