@@ -21,7 +21,7 @@ class Newsletter {
 	init () {
 		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
-			this.newsletterForm.dispatchEvent(new CustomEvent('newsletterSubscribed', { 'detail': event.target.dataset.newsletterId }))
+			this.newsletterForm.dispatchEvent(new CustomEvent('newsletterSubscribed', { 'detail': event.target.dataset.newsletterId }));
 			this.handleSubmit(event);
 		});
 	}
