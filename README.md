@@ -22,7 +22,8 @@ newsletterSignupInit();
 **For the newsletter title, `<h2>` tag is used.**
 **This may cause a problem on your app with the accessibility!!** :rotating_light:
 
-n-newsletter-signup template requires the following data:
+
+###### n-newsletter-signup template requires the following data:
  * `id`
  * `name`
  * `isPremium`
@@ -39,7 +40,7 @@ n-newsletter-signup template requires the following data:
  * `userIsSubscribed`
  * `referenceId`: to jump to the newsletter
 
-Please view the source for more information.
+:mag: Please view the source for more information.
 
 ## Demo page
 `$ make demo`: Serves examples of the component locally (`http://localhost:5005`), using dummy data and in isolation from an app.
