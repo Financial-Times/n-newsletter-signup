@@ -46,6 +46,7 @@ class Newsletter {
 			.then(res => {
 				if (res.ok) {
 					this.update(action);
+					this.newsletterForm.dispatchEvent(new CustomEvent(`newsletter.${action}`, { 'detail': this.newsletterId }));
 					if (action === 'subscribe') {
 						store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now());
 					}
