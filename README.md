@@ -12,31 +12,32 @@ Add the following line to your main sass file: `@import "n-newsletter-signup/mai
 
 ## Usage
 
-Client-side
+
 ```javascript
+// Client-side
 import { init as newsletterSignupInit } from 'n-newsletter-signup';
 newsletterSignupInit();
 ```
+:rotating_light:
 **For the newsletter title, `<h2>` tag is used.**
-
-**This may cause a problem on your app with the accessibility!!**
+**This may cause a problem on your app with the accessibility!!** :rotating_light:
 
 n-newsletter-signup template requires the following data:
  * `id`
  * `name`
  * `isPremium`
- * `unsubscribeAction` url to unsubscribe via myft api
+ * `unsubscribeAction`: url to unsubscribe via myft api
 
-  e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/unsubscribe`
- * `subscribeAction` url to subscribe via myft api
+		e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/unsubscribe`
+ * `subscribeAction`: url to subscribe via myft api
 
-  e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/subscribe`
+		e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/subscribe`
  * `inactive`
  * `description`
  * `subscriptionLevel`
  * `frequency`
  * `userIsSubscribed`
- * `referenceId` to jump to the newsletter
+ * `referenceId`: to jump to the newsletter
 
 Please view the source for more information.
 
