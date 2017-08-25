@@ -4,11 +4,14 @@ n-newsletter-signup is a component that displays one-click signup form to newsle
 
 ## Install
 
-Add the component to bower.json
+Add the component to bower.json:
 
-Run `bower install n-newsletter-signup --save`
+`bower install n-newsletter-signup --save`
 
-Add the following line to your main sass file: `@import "n-newsletter-signup/main";`
+Add the following line to your main sass file:
+
+`@import "n-newsletter-signup/main";`
+
 
 ## Usage
 
