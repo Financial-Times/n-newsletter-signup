@@ -18,12 +18,14 @@ Add the following line to your main sass file: `@import "n-newsletter-signup/mai
 import { init as newsletterSignupInit } from 'n-newsletter-signup';
 newsletterSignupInit();
 ```
+---
 :rotating_light:
 **For the newsletter title, `<h2>` tag is used.**
 **This may cause a problem on your app with the accessibility!!** :rotating_light:
 
+---
 
-###### n-newsletter-signup template requires the following data:
+#### n-newsletter-signup template requires the following data:
  * `id`
  * `name`
  * `isPremium`
