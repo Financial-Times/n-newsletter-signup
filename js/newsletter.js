@@ -71,17 +71,19 @@ class Newsletter {
 			buttonDataTrackable = 'newsletter-unsubscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
 				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
-				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from'
+				'Subscribed<span class="n-util-visually-hidden">&nbsp;from'
 			);
+			this.newsletterButton.classList.add('n-newsletter-signup__subscribed')
 		} else {
 			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
 			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'Unsubscribe<span class="n-util-visually-hidden">&nbsp;from',
+				'Subscribed<span class="n-util-visually-hidden">&nbsp;from',
 				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
 			);
+			this.newsletterButton.classList.remove('n-newsletter-signup__subscribed')
 		}
 
 		this.newsletterForm.action = formAction;
