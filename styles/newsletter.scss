@@ -32,7 +32,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	};
 }
 
-.mybutton {
+.n-newsletter-signup__submit--subscribed {
 	@include oButtons($theme: primary);
 	@include oButtonsSize(big);
 	margin: 14px 0 0;
@@ -41,11 +41,11 @@ $o-grid-gutter-small: oGridGutter(S);
 	};
 }
 
-.mybutton-icon {
+.n-newsletter-signup__submit--subscribed-icon {
 	@include oButtonsBaseStyles;
 }
 
-.mybutton-icon--tick {
+.n-newsletter-signup__submit--subscribed-icon--tick {
 	@include _oButtonsGetIconForThemeAndState(tick, primary, normal)
 }
 
