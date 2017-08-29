@@ -32,13 +32,21 @@ $o-grid-gutter-small: oGridGutter(S);
 	};
 }
 
-.n-newsletter-signup__subscribed {
+.mybutton {
 	@include oButtons($theme: primary);
 	@include oButtonsSize(big);
 	margin: 14px 0 0;
 	.n-util-hide {
 		display: none;
 	};
+}
+
+.mybutton-icon {
+	@include oButtonsBaseStyles;
+}
+
+.mybutton-icon--tick {
+	@include _oButtonsGetIconForThemeAndState(tick, primary, normal)
 }
 
 .n-newsletter-signup__upgrade {
