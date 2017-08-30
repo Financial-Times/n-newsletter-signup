@@ -73,7 +73,7 @@ class Newsletter {
 				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
 				'Subscribed<span class="n-util-visually-hidden">&nbsp;to'
 			);
-			this.newsletterButton.classList.add('n-newsletter-signup__subscribed')
+			this.el.classList.add('n-newsletter-signup--subscribed');
 		} else {
 			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
@@ -83,7 +83,7 @@ class Newsletter {
 				'Subscribed<span class="n-util-visually-hidden">&nbsp;to',
 				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
 			);
-			this.newsletterButton.classList.remove('n-newsletter-signup__subscribed')
+			this.el.classList.remove('n-newsletter-signup--subscribed');
 		}
 
 		this.newsletterForm.action = formAction;
