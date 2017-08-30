@@ -23,41 +23,6 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
-.n-newsletter-signup__submit {
-	@include oButtons();
-	@include oButtonsSize(big);
-	margin: 14px 0 0;
-	.n-util-hide {
-		display: none;
-	};
-}
-
-.n-newsletter-signup__submit--subscribed {
-	@include oButtons($theme: primary);
-	@include oButtonsSize(big);
-	margin: 14px 0 0;
-	.n-util-hide {
-		display: none;
-	};
-}
-
-.n-newsletter-signup__submit--subscribed-icon {
-	@include oButtonsBaseStyles;
-}
-
-.n-newsletter-signup__submit--subscribed-icon--tick {
-	@include _oButtonsGetIconForThemeAndState(tick, primary, normal)
-}
-
-.n-newsletter-signup__upgrade {
-	@include oButtons();
-	@include oButtonsSize(big);
-	margin: 14px 0 0;
-	.n-util-hide {
-		display: none;
-	};
-}
-
 .n-newsletter-signup__header {
 	display: flex;
 	background-color: getColor('claret');
@@ -140,4 +105,36 @@ $o-grid-gutter-small: oGridGutter(S);
 	text-transform: uppercase;
 	color: getColor('black-60');
 	margin: 16px 0;
+}
+
+.n-newsletter-signup__submit {
+	@include oButtons();
+	@include oButtonsSize(big);
+	margin: 14px 0 0;
+}
+
+.n-newsletter-signup--subscribed .n-newsletter-signup__submit {
+
+	@include oButtons($theme: primary);
+	@include oButtonsSize(big);
+	@include oButtonsBaseStyles;
+	margin: 14px 0 0;
+
+	&:before {
+		content: '';
+		width: 20px;
+		height: 12px;
+		display: inline-block;
+		background-size: 30px;
+		vertical-align: middle;
+		margin-left: -10px;
+		background-position: center;
+		@include _oButtonsGetIconForThemeAndState(tick, primary, normal)
+	}
+}
+
+.n-newsletter-signup__upgrade {
+	@include oButtons();
+	@include oButtonsSize(big);
+	margin: 14px 0 0;
 }
