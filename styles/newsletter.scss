@@ -111,7 +111,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: getColor('black-60');
-    margin: 0;
+	margin: 0;
 }
 
 .n-newsletter-signup__submit {
@@ -122,7 +122,7 @@ $o-grid-gutter-small: oGridGutter(S);
 
 [data-newsletter-user-subscribed="true"] .n-newsletter-signup__submit {
 	@include oButtonsTheme(primary);
-	
+
 	&:before {
 		content: '';
 		width: 20px;

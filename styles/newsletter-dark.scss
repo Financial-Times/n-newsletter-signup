@@ -3,8 +3,8 @@
     .n-newsletter-signup__header {
         background: none;
         border: 1px solid getColor('white-60');
-        border-left: none;
-        border-right: none;
+        border-left: 0;
+        border-right: 0;
         min-height: 60px;
     }
 
@@ -14,7 +14,7 @@
 
     .n-newsletter-signup__meta__premium {
         background-color: getColor('white-60');
-        color: getColor('black')
+        color: getColor('black');
     }
 
     .n-newsletter-signup__meta__frequency {
