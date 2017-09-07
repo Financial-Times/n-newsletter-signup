@@ -1,10 +1,12 @@
-<section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup{{#if theme}} n-newsletter-signup--{{theme}}{{/if}}" data-newsletter-user-subscribed="{{userIsSubscribed}}" {{#if isPremium}}data-newsletter-is-premium{{/if}}>
+<section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup{{#if theme}} n-newsletter-signup--{{theme}}{{/if}}"{{#if userIsSubscribed}} data-newsletter-user-is-subscribed{{/if}}{{#if isPremium}} data-newsletter-is-premium{{/if}}>
 	<div class="n-newsletter-signup__header">
 		<div class="n-newsletter-signup__heading">
+ 			{{#if isStandalone}}
 			<div class="n-newsletter-signup__heading__mail-icon__wrapper">
 				<span class="n-newsletter-signup__heading__mail-icon"/>
 			</div>
-			<h2 class="n-newsletter-signup__heading__title">{{name}} {{#unless hideEmailLabel}}Email{{/unless}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h2>
+			{{/if}}
+			<h2 class="n-newsletter-signup__heading__title">{{name}} {{#if isStandalone}}Email{{/if}}<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h2>
 		</div>
 	</div>
 	<div class="n-newsletter-signup__content" data-component="n-newsletter-signup__description">
