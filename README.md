@@ -4,8 +4,8 @@
 
 *  `theme`
     *  Currently only `dark`. Adds a class modifier that can override the default style. `dark` allows for better usage on a dark background.
-*  `hideEmailLabel`
-    *  Default `false`. Hides the `Email` suffix of the newsletter name.
+*  `isStandalone`
+    *  Shows the email icon in the header and `Email` suffix next to the newsletter name.
 *  `isPremium`
     *  Adds a label indicating the newsletter is a premium only newsletter.
 *  `userIsSubscribed`

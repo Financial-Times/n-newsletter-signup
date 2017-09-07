@@ -24,7 +24,7 @@
         @include oButtonsTheme(inverse);
     }
 
-    &[data-newsletter-user-subscribed="true"] .n-newsletter-signup__submit {
+    &[data-newsletter-user-is-subscribed] .n-newsletter-signup__submit {
         @include oButtonsTheme(primary);
     }
 
