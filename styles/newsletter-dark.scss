@@ -2,9 +2,8 @@
 
     .n-newsletter-signup__header {
         background: none;
-        border: 1px solid getColor('white-60');
-        border-left: 0;
-        border-right: 0;
+        border-top: 1px solid getColor('white-60');
+        border-bottom: 1px solid getColor('white-60');
         min-height: 60px;
     }
 
