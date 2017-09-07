@@ -120,7 +120,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	margin: 14px 0 0;
 }
 
-[data-newsletter-user-subscribed="true"] .n-newsletter-signup__submit {
+[data-newsletter-user-is-subscribed] .n-newsletter-signup__submit {
 	@include oButtonsTheme(primary);
 
 	&:before {

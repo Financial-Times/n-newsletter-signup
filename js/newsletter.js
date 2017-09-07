@@ -72,13 +72,13 @@ class Newsletter {
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Subscribe to', 'Unsubscribe from');
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
 			buttonDataTrackable = 'newsletter-unsubscribe';
-			this.el.dataset.newsletterUserSubscribed = true;
+			this.el.setAttribute('data-newsletter-user-is-subscribed', '');
 		} else {
 			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Unsubscribe from', 'Subscribe to');
 			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
-			this.el.dataset.newsletterUserSubscribed = false;
+			this.el.removeAttribute('data-newsletter-user-is-subscribed');
 		}
 
 		buttonText = this.newsletterButtonText.innerHTML;
