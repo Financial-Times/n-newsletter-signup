@@ -1,0 +1,32 @@
+[data-newsletter-theme="dark"] {
+
+    .n-newsletter-signup__header {
+        background: none;
+        border: 1px solid getColor('white-60');
+        border-left: none;
+        border-right: none;
+        min-height: 60px;
+    }
+
+    .n-newsletter-signup__description {
+        color: getColor('white');
+    }
+
+    .n-newsletter-signup__meta__premium {
+        background-color: getColor('white-60');
+        color: getColor('black')
+    }
+
+    .n-newsletter-signup__meta__frequency {
+        color: getColor('white-60');
+    }
+
+    .n-newsletter-signup__submit {
+        @include oButtonsTheme(inverse);
+    }
+
+    &[data-newsletter-user-subscribed="true"] .n-newsletter-signup__submit {
+        @include oButtonsTheme(primary);
+    }
+
+}

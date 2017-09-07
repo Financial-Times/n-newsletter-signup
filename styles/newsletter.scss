@@ -87,8 +87,15 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 }
 
+.n-newsletter-signup__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+}
+
 .n-newsletter-signup__description {
-	@include oTypographySans($scale: 1);
+	@include oTypographySans($scale: 0);
 	display: inline-block;
 	font-size: 18px;
 	flex-grow: 1;
@@ -104,7 +111,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: getColor('black-60');
-	margin: 16px 0;
+    margin: 0;
 }
 
 .n-newsletter-signup__submit {
@@ -113,13 +120,9 @@ $o-grid-gutter-small: oGridGutter(S);
 	margin: 14px 0 0;
 }
 
-.n-newsletter-signup--subscribed .n-newsletter-signup__submit {
-
-	@include oButtons($theme: primary);
-	@include oButtonsSize(big);
-	@include oButtonsBaseStyles;
-	margin: 14px 0 0;
-
+[data-newsletter-user-subscribed="true"] .n-newsletter-signup__submit {
+	@include oButtonsTheme(primary);
+	
 	&:before {
 		content: '';
 		width: 20px;

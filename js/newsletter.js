@@ -11,9 +11,11 @@ class Newsletter {
 	constructor (el) {
 			this.el = el;
 			this.newsletterName = el.dataset.newsletterName;
+			this.newsletterUserSubscribed = el.dataset.newsletterUserSubscribed === 'true';
 			this.newsletterForm = el.querySelector('form');
 			this.newsletterId = el.dataset.newsletterId;
 			this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
+			this.newsletterButtonText = this.el.querySelector('.n-newsletter-signup__buttontext');
 			this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
 			this.init();
 	}
@@ -63,34 +65,31 @@ class Newsletter {
 		let buttonTitle;
 		let buttonDataTrackable;
 		let buttonText;
+		let toggleText;
 
 		if (action === 'subscribe') {
 			formAction = this.newsletterForm.action.replace('subscribe', 'unsubscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Subscribe to', 'Unsubscribe from');
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
 			buttonDataTrackable = 'newsletter-unsubscribe';
-			buttonText = this.newsletterButton.innerHTML.replace(
-				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
-				'Subscribed<span class="n-util-visually-hidden">&nbsp;to'
-			);
-			this.el.classList.add('n-newsletter-signup--subscribed');
+			this.el.dataset.newsletterUserSubscribed = true;
 		} else {
 			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
-			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
+			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label').replace('Unsubscribe from', 'Subscribe to');
 			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
-			buttonText = this.newsletterButton.innerHTML.replace(
-				'Subscribed<span class="n-util-visually-hidden">&nbsp;to',
-				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
-			);
-			this.el.classList.remove('n-newsletter-signup--subscribed');
+			this.el.dataset.newsletterUserSubscribed = false;
 		}
+
+		buttonText = this.newsletterButtonText.innerHTML;
+		toggleText = this.newsletterButton.getAttribute('data-newsletter-toggle');
 
 		this.newsletterForm.action = formAction;
 		this.newsletterButton.setAttribute('aria-label', buttonAriaLabel);
 		this.newsletterButton.title = buttonTitle;
 		this.newsletterButton.dataset.trackable = buttonDataTrackable;
-		this.newsletterButton.innerHTML = buttonText;
+		this.newsletterButton.dataset.newsletterToggle = buttonText;
+		this.newsletterButtonText.innerHTML = toggleText;
 	}
 
 }
