@@ -125,12 +125,12 @@ $o-grid-gutter-small: oGridGutter(S);
 
 	&:before {
 		content: '';
-		width: 20px;
+		width: 30px;
 		height: 12px;
 		display: inline-block;
 		background-size: 30px;
 		vertical-align: middle;
-		margin-left: -10px;
+		margin-left: -15px;
 		background-position: center;
 		@include _oButtonsGetIconForThemeAndState(tick, primary, normal)
 	}

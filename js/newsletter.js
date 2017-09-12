@@ -17,13 +17,16 @@ class Newsletter {
 			this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
 			this.newsletterButtonText = this.el.querySelector('.n-newsletter-signup__buttontext');
 			this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
+			this.updateInProgress = false;
 			this.init();
 	}
 
 	init () {
 		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
-			this.handleSubmit(event);
+			if(!this.updateInProgress) {
+				this.handleSubmit(event);
+			}
 		});
 	}
 
@@ -43,8 +46,10 @@ class Newsletter {
 	}
 
 	callApi (url, action) {
+		this.updateInProgress = true;
 		fetch(url, apiOptions)
 			.then(res => {
+				this.updateInProgress = false;
 				if (res.ok) {
 					this.update(action);
 					this.newsletterForm.dispatchEvent(new CustomEvent(`newsletter.${action}`, { 'detail': this.newsletterId }));
@@ -53,6 +58,7 @@ class Newsletter {
 				}
 			})
 			.catch(err => {
+				this.updateInProgress = false;
 				this.feedback.update('error');
 				this.el.setAttribute('aria-busy', 'false');
 				throw err;
