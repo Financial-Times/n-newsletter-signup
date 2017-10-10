@@ -52,6 +52,8 @@ newsletterSignupInit();
 
 ## Local storage
 Subscribed time is stored using `superstore-sync`
+
+
 ```store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now());```
 
 ## Demo page
