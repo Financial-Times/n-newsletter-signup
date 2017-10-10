@@ -52,9 +52,10 @@ newsletterSignupInit();
 
 ## Local storage
 Subscribed time is stored using `superstore-sync`
-
-
-```store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now());```
+```js
+// js/newsletter.js
+store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now());
+```
 
 ## Demo page
 `$ make demo`: Serves examples of the component locally (`http://localhost:5005`), using dummy data and in isolation from an app.
