@@ -4,7 +4,7 @@ $o-labels-is-silent: true;
 $o-buttons-is-silent: true;
 @import 'o-buttons/main';
 
-$o-icons-is-silent: false;
+$o-icons-is-silent: true;
 @import "o-icons/main";
 
 $o-grid-gutter-small: oGridGutter(S);
