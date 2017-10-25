@@ -28,7 +28,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	background-color: getColor('claret');
 	color: white;
 	padding: 5px 12px;
-	min-height: 100px;
+	min-height: 80px;
 	position: relative;
 	box-sizing: border-box;
 
@@ -49,16 +49,12 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__heading__title {
-	@include oTypographyDisplayBold($scale: 2);
-	font-size: 30px;
-	line-height: 30px;
+	@include oTypographySans($scale: 2);
+	font-size: 20px;
+	line-height: 20px;
 	@include oGridRespondTo($from: M, $until: XL) {
-		font-size: 24px;
-		line-height: 28px;
-	}
-	@include oGridRespondTo($until: S) {
-		font-size: 40px;
-		line-height: 40px;
+		font-size: 16px;
+		line-height: 16px;
 	}
 	margin: 0;
 }
