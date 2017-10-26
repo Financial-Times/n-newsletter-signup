@@ -95,7 +95,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oButtons($theme: primary);
 	@include oButtonsSize(big);
 	@include oButtonsBaseStyles;
-	margin: 14px 0 0;
+	margin: 16px;
 	padding: 12px 16px;
 
 	&:before {
