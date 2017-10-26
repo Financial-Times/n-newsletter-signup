@@ -14,29 +14,16 @@ $o-grid-gutter-small: oGridGutter(S);
 	flex-direction: column;
 	position: relative;
 	width: 100%;
-
-	&::after {
-		content: '';
-		display: block;
-		margin-top: 21px;
-		border-bottom: 1px solid getColor('black-20');
-	}
+	border: 1px solid getColor('black-20');
 }
 
 .n-newsletter-signup__header {
 	display: flex;
 	background-color: getColor('claret');
 	color: white;
-	padding: 5px 12px;
-	min-height: 100px;
+	padding: 12px 16px;
 	position: relative;
 	box-sizing: border-box;
-
-	// cancel-out o-grid margin for mobile card
-	@include oGridRespondTo($until: S) {
-		left: -$o-grid-gutter-small;
-		width: calc(100% + #{$o-grid-gutter-small * 2});
-	}
 }
 
 .n-newsletter-signup__heading {
@@ -49,17 +36,7 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__heading__title {
-	@include oTypographyDisplayBold($scale: 2);
-	font-size: 30px;
-	line-height: 30px;
-	@include oGridRespondTo($from: M, $until: XL) {
-		font-size: 24px;
-		line-height: 28px;
-	}
-	@include oGridRespondTo($until: S) {
-		font-size: 40px;
-		line-height: 40px;
-	}
+	@include oTypographySans($scale: (default: (1, 1em), S: (1, 1em), M: (2, 1em), L: (2, 1em), XL: (2, 1em)));
 	margin: 0;
 }
 
@@ -92,7 +69,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	display: inline-block;
 	font-size: 18px;
 	flex-grow: 1;
-	margin: 12px 0;
+	margin: 16px 16px 4px;
 }
 
 .n-newsletter-signup__meta__premium {
@@ -104,13 +81,13 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: getColor('black-60');
-	margin: 16px 0;
+	margin: 16px;
 }
 
 .n-newsletter-signup__submit {
 	@include oButtons();
 	@include oButtonsSize(big);
-	margin: 14px 0 0;
+	margin: 16px;
 }
 
 .n-newsletter-signup--subscribed .n-newsletter-signup__submit {
@@ -119,6 +96,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	@include oButtonsSize(big);
 	@include oButtonsBaseStyles;
 	margin: 14px 0 0;
+	padding: 12px 16px;
 
 	&:before {
 		content: '';
