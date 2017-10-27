@@ -74,14 +74,13 @@ $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup__meta__premium {
 	@include oLabels('premium', -2);
-	margin: 0 5px 0 0;
+	margin: 0 5px 0 16px;
 }
 
 .n-newsletter-signup__meta__frequency {
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
 	color: getColor('black-60');
-	margin: 16px;
 }
 
 .n-newsletter-signup__submit {
