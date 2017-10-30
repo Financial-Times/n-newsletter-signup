@@ -72,9 +72,12 @@ $o-grid-gutter-small: oGridGutter(S);
 	margin: 16px 16px 4px;
 }
 
+.n-newsletter-signup__meta {
+	margin: 0 5px 0 16px;
+}
+
 .n-newsletter-signup__meta__premium {
 	@include oLabels('premium', -2);
-	margin: 0 5px 0 16px;
 }
 
 .n-newsletter-signup__meta__frequency {

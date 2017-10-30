@@ -6,8 +6,10 @@
 	</div>
 	<div data-component="n-newsletter-signup__description">
 		<p class="n-newsletter-signup__description">{{description}}</p>
-		{{#if isPremium}}<span aria-hidden="true" class="n-newsletter-signup__meta__premium o-labels o-labels--premium">Premium</span>{{/if}}
-		<span aria-hidden="true" class="n-newsletter-signup__meta__frequency">{{frequency}}</span>
+		<div class="n-newsletter-signup__meta">
+			{{#if isPremium}}<span aria-hidden="true" class="n-newsletter-signup__meta__premium o-labels o-labels--premium">Premium</span>{{/if}}
+			<span aria-hidden="true" class="n-newsletter-signup__meta__frequency">{{frequency}}</span>
+		</div>
 	</div>
 
 	{{#if userNeedsToUpgrade}}
