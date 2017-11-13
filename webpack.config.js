@@ -14,7 +14,7 @@ module.exports = {
 	// Generate source maps
 	devtool: 'source-map',
 	entry: {
-		 './public/main.js': './demos/src/main.js'
+		'./public/main.js': './demos/src/main.js'
 	},
 	resolve: {
 
