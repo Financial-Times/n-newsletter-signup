@@ -29,21 +29,21 @@ newsletterSignupInit();
 ---
 
 #### n-newsletter-signup template requires the following data:
- * `id`
- * `name`
- * `isPremium`
- * `unsubscribeAction`: url to unsubscribe via myft api
+	* `id`
+	* `name`
+	* `isPremium`
+	* `unsubscribeAction`: url to unsubscribe via myft api
 
 		e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/unsubscribe`
- * `subscribeAction`: url to subscribe via myft api
+	* `subscribeAction`: url to subscribe via myft api
 
 		e.g. `/__myft/api/alerts/no-user-provided/newsletters/${newsletter.id}/subscribe`
- * `inactive`
- * `description`
- * `subscriptionLevel`
- * `frequency`
- * `userIsSubscribed`
- * `referenceId`: to jump to the newsletter
+	* `inactive`
+	* `description`
+	* `subscriptionLevel`
+	* `frequency`
+	* `userIsSubscribed`
+	* `referenceId`: to jump to the newsletter
 
 :mag: Please view the source for more information.
 
