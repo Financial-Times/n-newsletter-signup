@@ -74,8 +74,8 @@ class Newsletter {
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
 			buttonDataTrackable = 'newsletter-unsubscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to',
-				'Subscribed<span class="n-util-visually-hidden">&nbsp;to'
+				'One-Click Sign Up<span class="o-normalise-visually-hidden">&nbsp;to',
+				'Subscribed<span class="o-normalise-visually-hidden">&nbsp;to'
 			);
 			this.el.classList.add('n-newsletter-signup--subscribed');
 		} else {
@@ -84,8 +84,8 @@ class Newsletter {
 			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'Subscribed<span class="n-util-visually-hidden">&nbsp;to',
-				'One-Click Sign Up<span class="n-util-visually-hidden">&nbsp;to'
+				'Subscribed<span class="o-normalise-visually-hidden">&nbsp;to',
+				'One-Click Sign Up<span class="o-normalise-visually-hidden">&nbsp;to'
 			);
 			this.el.classList.remove('n-newsletter-signup--subscribed');
 		}
