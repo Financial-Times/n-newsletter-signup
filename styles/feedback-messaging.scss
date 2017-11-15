@@ -13,5 +13,5 @@
 }
 
 .n-newsletter-signup__feedback--hidden {
-	@include nUtilsVisuallyHidden();
+	@include oNormaliseVisuallyHidden();
 }
