@@ -1,7 +1,7 @@
 <section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup n-newsletter-signup" {{#if isPremium}}data-newsletter-is-premium{{/if}}>
 	<div class="n-newsletter-signup__header">
 		<div class="n-newsletter-signup__heading">
-			<h2 class="n-newsletter-signup__heading__title">Sign up to the {{name}} email<span class="n-util-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h2>
+			<h2 class="n-newsletter-signup__heading__title">Sign up to the {{name}} email<span class="o-normalise-visually-hidden">{{#if isPremium}}, premium{{/if}}{{#if frequency}}, {{frequency}}{{/if}}</span></h2>
 		</div>
 	</div>
 	<div data-component="n-newsletter-signup__description">
@@ -14,7 +14,7 @@
 
 	{{#if userNeedsToUpgrade}}
 		<div>
-			<a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade" data-trackable="newsletters-upgrade">Upgrade<span class="n-util-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
+			<a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade" data-trackable="newsletters-upgrade">Upgrade<span class="o-normalise-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
 		</div>
 	{{else}}
 		{{> n-newsletter-signup/templates/partials/newsletter-form}}
