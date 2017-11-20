@@ -1,0 +1,9 @@
+<section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup n-newsletter-signup--simple" {{#if isPremium}}data-newsletter-is-premium{{/if}}>
+    <span class="n-newsletter-signup__description">Sign up to the {{frequency}} {{name}} email</span>
+
+	{{#if userNeedsToUpgrade}}
+		<a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade" data-trackable="newsletters-upgrade">Upgrade<span class="o-normalise-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
+	{{else}}
+		{{> n-newsletter-signup/templates/partials/newsletter-form}}
+	{{/if}}
+</section>

@@ -1,0 +1,18 @@
+.n-newsletter-signup--simple {
+    display: block;
+    border: 0;
+
+    .n-newsletter-signup__description {
+        margin: 0;
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    .n-newsletter-signup__form {
+        display: inline-block;
+    }
+
+    .n-newsletter-signup__submit {
+        @include oButtonsTheme(primary);
+    }
+}
