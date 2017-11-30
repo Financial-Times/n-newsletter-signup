@@ -2,7 +2,7 @@
 	display: block;
 	border: 0;
 	.n-newsletter-signup__description {
-		margin: 0;
+		margin: 0 oTypographySpacingSize(5) 0 0;
 		font-weight: 600;
 		vertical-align: middle;
 	}
@@ -11,5 +11,6 @@
 	}
 	.n-newsletter-signup__submit {
 		@include oButtonsTheme(primary);
+		margin-left: 0;
 	}
 }
