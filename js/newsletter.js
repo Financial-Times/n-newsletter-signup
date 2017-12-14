@@ -1,4 +1,5 @@
 import { local as store } from 'superstore-sync';
+import { broadcast } from 'n-ui-foundations';
 const Feedback = require('./feedback-messaging');
 const apiOptions = {
 	method: 'POST',
@@ -32,7 +33,13 @@ class Newsletter {
 		this.feedback.update('update');
 		const url = event.target.action;
 		const action = url.indexOf('unsubscribe') > -1 ? 'unsubscribe' : 'subscribe';
-		this.callApi(url, action);
+		this.callApi(url, action)
+			.catch(error => broadcast('oErrors.log', {
+				error,
+				info: {
+					reason: 'Failed newsletter signup'
+				}
+			}))
 	}
 
 	update (action) {
