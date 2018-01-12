@@ -39,7 +39,7 @@ class Newsletter {
 				info: {
 					reason: 'Failed newsletter signup'
 				}
-			}))
+			}));
 	}
 
 	update (action) {
