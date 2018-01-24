@@ -1,5 +1,5 @@
-import { local as store } from 'superstore-sync';
-import { broadcast } from 'n-ui-foundations';
+const store = require('superstore-sync').local;
+const broadcast = require('n-ui-foundations');
 const Feedback = require('./feedback-messaging');
 const apiOptions = {
 	method: 'POST',
