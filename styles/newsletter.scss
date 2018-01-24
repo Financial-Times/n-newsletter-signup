@@ -44,11 +44,11 @@ $o-grid-gutter-small: oGridGutter(S);
 
 	@include oGridRespondTo($from: M, $until: XL) {
 		font-size: 24px;
-		line-height: 28px
+		line-height: 28px;
 	}
 	@include oGridRespondTo($until: S) {
 		font-size: 40px;
-		line-height: 40px
+		line-height: 40px;
 	}
 
 }
@@ -64,7 +64,7 @@ $o-grid-gutter-small: oGridGutter(S);
 .n-newsletter-signup__description {
 	display: inline-block;
 	flex-grow: 1;
-	margin: 12px 0 0 0;
+	margin-top: 12px;
 }
 
 .n-newsletter-signup__body {
