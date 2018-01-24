@@ -33,6 +33,7 @@ class Newsletter {
 		this.feedback.update('update');
 		const url = event.target.action;
 		const action = url.indexOf('unsubscribe') > -1 ? 'unsubscribe' : 'subscribe';
+
 		this.callApi(url, action)
 			.catch(error => broadcast('oErrors.log', {
 				error,
@@ -49,7 +50,7 @@ class Newsletter {
 	}
 
 	callApi (url, action) {
-		fetch(url, apiOptions)
+		return fetch(url, apiOptions)
 			.then(res => {
 				if (res.ok) {
 					this.update(action);
@@ -81,8 +82,8 @@ class Newsletter {
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
 			buttonDataTrackable = 'newsletter-unsubscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'One-Click Sign Up<span class="o-normalise-visually-hidden">&nbsp;to',
-				'Subscribed<span class="o-normalise-visually-hidden">&nbsp;to'
+				'One-Click Sign Up',
+				'Subscribed'
 			);
 			this.el.classList.add('n-newsletter-signup--subscribed');
 		} else {
@@ -91,8 +92,8 @@ class Newsletter {
 			buttonTitle = this.newsletterButton.title.replace('Unsubscribe from', 'Subscribe to');
 			buttonDataTrackable = 'newsletter-subscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'Subscribed<span class="o-normalise-visually-hidden">&nbsp;to',
-				'One-Click Sign Up<span class="o-normalise-visually-hidden">&nbsp;to'
+				/(Subscribed)|(Unsubscribe)/,
+				'One-Click Sign Up'
 			);
 			this.el.classList.remove('n-newsletter-signup--subscribed');
 		}
