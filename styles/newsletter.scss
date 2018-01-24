@@ -93,6 +93,8 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup--subscribed .n-newsletter-signup__submit {
+	@include oButtons($theme: primary);
+	@include oButtonsSize(big);
 	@include oButtonsIconButton(tick, big, primary);
 	margin: 16px;
 }
