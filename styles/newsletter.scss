@@ -87,23 +87,10 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup--subscribed .n-newsletter-signup__submit {
-
 	@include oButtons($theme: primary);
 	@include oButtonsSize(big);
-	@include oButtonsBaseStyles;
+	@include oButtonsIconButton(tick, big, primary);
 	margin: 16px 16px 16px 0;
-
-	&:before {
-		content: '';
-		width: 20px;
-		height: 12px;
-		display: inline-block;
-		background-size: 30px;
-		vertical-align: middle;
-		margin-left: -10px;
-		background-position: center;
-		@include _oButtonsGetIconForThemeAndState(tick, primary, normal);
-	}
 }
 
 .n-newsletter-signup__upgrade {
