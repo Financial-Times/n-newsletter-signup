@@ -1,7 +1,0 @@
-machine:
-  node:
-    version: 6.9.0
-
-dependencies:
-  cache_directories:
-    - "bower_components"
