@@ -62,6 +62,7 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__description {
+	@include oTypographySerif($scale: 1);
 	display: inline-block;
 	flex-grow: 1;
 	margin-top: 12px;
