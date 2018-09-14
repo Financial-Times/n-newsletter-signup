@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
   "devDependencies": {
-    "@financial-times/n-gage": "^1.17.0-beta.1",
+    "@financial-times/n-gage": "^2.0.4",
     "@financial-times/n-internal-tool": "^2.1.0",
+    "bower": "^1.8.0",
     "bower-resolve-webpack-plugin": "^1.0.4",
     "node-sass": "^4.5.3",
-    "pa11y-ci": "^1.2.0",
-    "webpack": "^3.5.2",
-    "bower": "^1.8.0"
+    "pa11y-ci": "^2.1.1",
+    "webpack": "^3.5.2"
   }
 }
