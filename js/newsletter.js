@@ -1,13 +1,7 @@
 import { local as store } from 'superstore-sync';
 import { broadcast } from 'n-ui-foundations';
+const getToken = require('n-myft-ui/myft/ui/lib/get-csrf-token');
 const Feedback = require('./feedback-messaging');
-const apiOptions = {
-	method: 'POST',
-	credentials: 'same-origin',
-	headers: {
-		accept: 'application/json'
-	}
-};
 
 class Newsletter {
 	constructor (el) {
@@ -50,6 +44,16 @@ class Newsletter {
 	}
 
 	callApi (url, action) {
+		const csrfToken = getToken();
+		const apiOptions = {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				accept: 'application/json'
+			},
+			body: JSON.stringify({token: csrfToken})
+		};
+
 		return fetch(url, apiOptions)
 			.then(res => {
 				if (res.ok) {
