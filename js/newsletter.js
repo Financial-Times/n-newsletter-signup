@@ -49,7 +49,8 @@ class Newsletter {
 			method: 'POST',
 			credentials: 'same-origin',
 			headers: {
-				accept: 'application/json'
+				accept: 'application/json',
+				'content-type': 'application/json'
 			},
 			body: JSON.stringify({token: csrfToken})
 		};
