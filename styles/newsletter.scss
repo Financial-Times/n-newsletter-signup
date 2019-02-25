@@ -54,11 +54,15 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__top-meta {
+	@include oLabelsContent($opts: (
+		'base': true,
+        'size': 'small',
+        'state': 'content-premium'
+	));
 	@include oTypographySansBold($scale: 0);
 	position: absolute;
 	top: 0;
 	right: 16px;
-	@include oLabels('premium', 0);
 }
 
 .n-newsletter-signup__description {
