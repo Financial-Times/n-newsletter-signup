@@ -1,4 +1,4 @@
-# n-newsletter-signup
+# n-newsletter-signup [![CircleCI](https://circleci.com/gh/Financial-Times/n-newsletter-signup.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-newsletter-signup)
 
 n-newsletter-signup is a component that displays one-click signup form to newsletters.
 
