@@ -56,8 +56,8 @@ $o-grid-gutter-small: oGridGutter(S);
 .n-newsletter-signup__top-meta {
 	@include oLabelsContent($opts: (
 		'base': true,
-        'size': 'small',
-        'state': 'content-premium'
+		'size': 'small',
+		'state': 'content-premium'
 	));
 	@include oTypographySansBold($scale: 0);
 	position: absolute;
