@@ -1,9 +1,9 @@
 import { local as store } from 'superstore-sync';
 import { broadcast } from 'n-ui-foundations';
-const getToken = require('n-myft-ui/myft/ui/lib/get-csrf-token');
-const Feedback = require('./feedback-messaging');
+import getToken from 'n-myft-ui/myft/ui/lib/get-csrf-token';
+import Feedback from './feedback-messaging';
 
-class Newsletter {
+export default class Newsletter {
 	constructor (el) {
 			this.el = el;
 			this.newsletterName = el.dataset.newsletterName;
@@ -111,5 +111,3 @@ class Newsletter {
 	}
 
 }
-
-module.exports = Newsletter;
