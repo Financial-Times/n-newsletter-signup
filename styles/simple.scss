@@ -2,7 +2,7 @@
 	display: block;
 	border: 0;
 	.n-newsletter-signup__description {
-		margin: 0 oTypographySpacingSize(5) 0 0;
+		margin: 0 oSpacingByIncrement(5) 0 0;
 		font-weight: 600;
 		vertical-align: middle;
 	}
@@ -10,7 +10,9 @@
 		display: inline-block;
 	}
 	.n-newsletter-signup__submit {
-		@include oButtonsTheme(primary);
+		@include oButtonsContent($opts: (
+			'type': 'primary'
+		), $include-base-styles: false);
 		margin-left: 0;
 	}
 }

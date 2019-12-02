@@ -1,11 +1,9 @@
-$o-labels-is-silent: true;
-@import 'o-labels/main';
-
-$o-buttons-is-silent: true;
-@import 'o-buttons/main';
-
-$o-icons-is-silent: true;
-@import "o-icons/main";
+@include oLabels($opts: (
+	'sizes': ('small'),
+	'states': (
+		'content-premium'
+	)
+));
 
 $o-grid-gutter-small: oGridGutter(S);
 
@@ -14,7 +12,7 @@ $o-grid-gutter-small: oGridGutter(S);
 	flex-direction: column;
 	position: relative;
 	width: 100%;
-	border-bottom: 1px solid getColor('black-20');
+	border-bottom: 1px solid oColorsByName('black-20');
 }
 
 .n-newsletter-signup__header {
@@ -23,12 +21,12 @@ $o-grid-gutter-small: oGridGutter(S);
 	box-sizing: border-box;
 	min-height: 100px;
 	padding: 5px 12px;
-	background-color: getColor('claret');
+	background-color: oColorsByName('claret');
 	color: white;
 }
 
 .n-newsletter-signup__heading {
-	@include oTypographyDisplayBold($scale: 2);
+	@include oTypographyDisplay($scale: 2, $weight: 'bold');
 
 	display: inline-block;
 	align-self: flex-end;
@@ -54,12 +52,6 @@ $o-grid-gutter-small: oGridGutter(S);
 }
 
 .n-newsletter-signup__top-meta {
-	@include oLabelsContent($opts: (
-		'base': true,
-		'size': 'small',
-		'state': 'content-premium'
-	));
-	@include oTypographySansBold($scale: 0);
 	position: absolute;
 	top: 0;
 	right: 16px;
@@ -74,7 +66,7 @@ $o-grid-gutter-small: oGridGutter(S);
 
 .n-newsletter-signup__body {
 	@include oTypographySans($scale: 0);
-	color: getColor('black-80');
+	color: oColorsByName('black-80');
 	display: inline-block;
 	flex-grow: 1;
 }
@@ -82,24 +74,30 @@ $o-grid-gutter-small: oGridGutter(S);
 .n-newsletter-signup__meta__frequency {
 	@include oTypographySans($scale: -2);
 	text-transform: uppercase;
-	color: getColor('black-60');
+	color: oColorsByName('black-60');
 }
 
 .n-newsletter-signup__submit {
-	@include oButtons();
-	@include oButtonsSize(big);
+	@include oButtonsContent($opts: (
+		'type': 'secondary',
+		'size': 'big'
+	));
 	margin: 16px 16px 16px 0;
 }
 
 .n-newsletter-signup--subscribed .n-newsletter-signup__submit {
-	@include oButtons($theme: primary);
-	@include oButtonsSize(big);
-	@include oButtonsIconButton(tick, big, primary);
+	@include oButtonsContent($opts: (
+		'type': 'primary',
+		'size': 'big',
+		'icon': 'tick',
+	), $include-base-styles: false);
 	margin: 16px 16px 16px 0;
 }
 
 .n-newsletter-signup__upgrade {
-	@include oButtons();
-	@include oButtonsSize(big);
+	@include oButtonsContent($opts: (
+		'type': 'secondary',
+		'size': 'big'
+	));
 	margin: 16px 16px 16px 0;
 }
