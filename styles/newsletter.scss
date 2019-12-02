@@ -1,8 +1,8 @@
 @include oLabels($opts: (
-    'sizes': ('small'),
-    'states': (
-        'content-premium'
-    )
+	'sizes': ('small'),
+	'states': (
+		'content-premium'
+	)
 ));
 
 $o-grid-gutter-small: oGridGutter(S);
