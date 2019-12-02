@@ -11,8 +11,7 @@
 	}
 	.n-newsletter-signup__submit {
 		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'size': 'big'
+			'type': 'primary'
 		), $include-base-styles: false);
 		margin-left: 0;
 	}
