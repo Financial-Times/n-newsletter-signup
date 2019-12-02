@@ -8,8 +8,8 @@
 }
 
 .n-newsletter-signup__feedback--error {
-	background: getColor('wheat');
-	color: getColor('crimson');
+	background: oColorsByName('wheat');
+	color: oColorsByName('crimson');
 }
 
 .n-newsletter-signup__feedback--hidden {

@@ -12,10 +12,10 @@
   "license": "ISC",
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup",
   "dependencies": {
-    "o-labels": "^4.0.0",
-    "n-ui-foundations": "^3.0.0",
-    "n-myft-ui": "^18.1.5",
-    "o-icons": ">=4.0.0 <6",
+    "o-spacing": "^2.0.0",
+    "o-labels": "^5.0.0",
+    "n-ui-foundations": "v4.0.0-beta.2",
+    "n-myft-ui": "v21.0.0-beta.1",
     "superstore-sync": "^2.1.1"
   }
 }
