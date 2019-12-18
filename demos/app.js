@@ -31,35 +31,35 @@ app.get('/', (req, res) => {
 
 app.post('/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe', (req, res) => {
 	const data = {
-					'isPremium': true,
-					'referenceId': 'ft',
-					'unsubscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe',
-					'subscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe',
-					'id': '12345',
-					'name': 'FT',
-					'subscriptionLevel': 'Premium',
-					'inactive': false,
-					'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
-					'frequency': 'daily',
-					'userIsSubscribed': true
-				};
+		'isPremium': true,
+		'referenceId': 'ft',
+		'unsubscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe',
+		'subscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe',
+		'id': '12345',
+		'name': 'FT',
+		'subscriptionLevel': 'Premium',
+		'inactive': false,
+		'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
+		'frequency': 'daily',
+		'userIsSubscribed': true
+	};
 	res.json(data);
 });
 
 app.post('/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe', (req, res) => {
 	const data = {
-					'isPremium': true,
-					'referenceId': 'ft',
-					'unsubscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe',
-					'subscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe',
-					'id': '12345',
-					'name': 'FT',
-					'subscriptionLevel': 'Premium',
-					'inactive': false,
-					'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
-					'frequency': 'daily',
-					'userIsSubscribed': false
-				};
+		'isPremium': true,
+		'referenceId': 'ft',
+		'unsubscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe',
+		'subscribeAction': '/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe',
+		'id': '12345',
+		'name': 'FT',
+		'subscriptionLevel': 'Premium',
+		'inactive': false,
+		'description': 'News, analysis and comment from the Financial Times, the world\'s leading global business publication.',
+		'frequency': 'daily',
+		'userIsSubscribed': false
+	};
 	res.json(data);
 });
 

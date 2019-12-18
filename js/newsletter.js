@@ -5,13 +5,13 @@ import Feedback from './feedback-messaging';
 
 export default class Newsletter {
 	constructor (el) {
-			this.el = el;
-			this.newsletterName = el.dataset.newsletterName;
-			this.newsletterForm = el.querySelector('form');
-			this.newsletterId = el.dataset.newsletterId;
-			this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
-			this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
-			this.init();
+		this.el = el;
+		this.newsletterName = el.dataset.newsletterName;
+		this.newsletterForm = el.querySelector('form');
+		this.newsletterId = el.dataset.newsletterId;
+		this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
+		this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
+		this.init();
 	}
 
 	init () {
