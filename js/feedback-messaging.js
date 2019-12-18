@@ -1,6 +1,6 @@
-const getTimestamp = require('./timestamp');
+import getTimestamp from './timestamp';
 
-class Feedback {
+export default class Feedback {
 	constructor (parent, name, id) {
 		this.parentHtml = parent;
 		this.html = document.createElement('p');
@@ -66,5 +66,3 @@ class Feedback {
 	}
 
 }
-
-module.exports = Feedback;
