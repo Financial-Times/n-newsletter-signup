@@ -1,4 +1,4 @@
-const timestamp = (time) => {
+export default function timestamp (time) {
 	if(time && time instanceof Date) {
 		const hoursRaw = time.getHours();
 		const hours = (hoursRaw > 12 ? hoursRaw - 12 : hoursRaw).toString();
@@ -9,6 +9,4 @@ const timestamp = (time) => {
 		}
 	}
 	return '';
-};
-
-module.exports = timestamp;
+}
