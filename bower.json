@@ -15,7 +15,7 @@
     "o-spacing": "^2.0.0",
     "o-labels": "^5.0.0",
     "n-ui-foundations": "^6.0.0",
-    "n-myft-ui": "^22.0.0",
+    "n-myft-ui": "^23.0.1",
     "superstore-sync": "^2.1.1"
   }
 }
