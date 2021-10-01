@@ -1,7 +1,7 @@
 linters:
 
   # Documentation:
-  # https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md
+  # https://github.com/causes/scss-lint/blob/main/lib/scss_lint/linter/README.md
 
   # "value !important;" not "value!important ;"
   BangFormat:
