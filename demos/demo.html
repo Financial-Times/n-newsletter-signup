@@ -1,20 +1,28 @@
-<link rel="stylesheet" href="/public/main.css">
-<div class="o-grid-container o-grid-container--snappy">
-	<div class="o-grid-row">
-		<h1>n-newsletter-signup demo</h1>
-	</div>
-	<div class="o-grid-row">
-		<div data-o-grid-colspan="12 S6 M4 L3">
-			{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>demo</title>
+		<link rel="stylesheet" href="/public/main.css">
+	</head>
+	<body>
+		<div class="o-grid-container o-grid-container--snappy">
+			<div class="o-grid-row">
+				<h1>n-newsletter-signup demo</h1>
+			</div>
+			<div class="o-grid-row">
+				<div data-o-grid-colspan="12 S6 M4 L3">
+					{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
+				</div>
+			</div>
+
+
+			<h2>Simple inline</h2>
+
+			<div class="o-grid-row">
+				<div data-o-grid-colspan="12 L7 XLoffset1">
+					{{> n-newsletter-signup/templates/simple flags=@root.flags id=12346}}
+				</div>
+			</div>
 		</div>
-	</div>
-
-
-	<h2>Simple inline</h2>
-
-	<div class="o-grid-row">
-		<div data-o-grid-colspan="12 L7 XLoffset1">
-			{{> n-newsletter-signup/templates/simple flags=@root.flags id=12346}}
-		</div>
-	</div>
-</div>
+	</body>
+</html>
