@@ -1,10 +1,14 @@
 'use strict';
 
-const express = require('@financial-times/n-internal-tool');
+const express = require('@financial-times/n-express');
 const fixtures = require('./fixtures.json');
 const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
+
+const { PageKitHandlebars, helpers } = require('@financial-times/dotcom-server-handlebars');
+const handlebars = require('handlebars');
+const path = require('path');
 
 const app = module.exports = express({
 	name: 'public',
@@ -19,8 +23,21 @@ const app = module.exports = express({
 	viewsDirectory: '/demos',
 	layoutsDir: 'demos',
 	partialsDirectory: process.cwd(),
-	directory: process.cwd()
+	directory: process.cwd(),
 });
+
+app.set('views', __dirname);
+app.set('view engine', '.html');
+
+app.engine('.html', new PageKitHandlebars({
+	cache: false,
+	handlebars,
+	helpers: {
+		...helpers
+	}
+}).engine);
+
+app.use('/public', express.static(path.join(__dirname, '../public'), { redirect: false }));
 
 app.get('/', (req, res) => {
 	res.render('demo', Object.assign({
