@@ -160,10 +160,10 @@ workflows:
             <<: *filters_version_tag
           requires:
             - build-v<< matrix.node-version >>
-            name: test-v<< matrix.node-version >>
-            matrix:
-              parameters:
-                node-version: [ "16.14", "14.19" ]
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - publish:
           context: npm-publish-token
           filters:
@@ -181,18 +181,17 @@ workflows:
       - build:
           context: next-nightly-build
           name: build-v<< matrix.node-version >>
-            matrix:
-              parameters:
-                node-version: [ "16.14", "14.19" ]
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           context: next-nightly-build
           name: test-v<< matrix.node-version >>
-            matrix:
-              parameters:
-                node-version: [ "16.14", "14.19" ]
-
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
 notify:
   webhooks:
     - url: https://ft-next-webhooks.herokuapp.com/circleci2-workflow
