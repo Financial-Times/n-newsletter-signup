@@ -1,6 +1,6 @@
 import { local as store } from 'superstore-sync';
 import { broadcast } from 'n-ui-foundations';
-import getToken from 'n-myft-ui/myft/ui/lib/get-csrf-token';
+import getToken from '@financial-times/n-myft-ui/myft/ui/lib/get-csrf-token';
 import Feedback from './feedback-messaging';
 
 export default class Newsletter {
