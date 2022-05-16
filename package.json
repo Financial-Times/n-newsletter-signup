@@ -1,52 +1,58 @@
 {
-  "name": "n-newsletter-signup",
-  "version": "1.0.0",
-  "description": "",
-  "main": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npx snyk protect || npx snyk protect -d || true",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Financial-Times/n-newsletter-signup.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/n-newsletter-signup/issues"
-  },
-  "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
-  "devDependencies": {
-    "@financial-times/n-express": "^21.0.9",
-    "@financial-times/n-gage": "^8.2.0",
-    "bower": "^1.8.8",
-    "bower-resolve-webpack-plugin": "^1.0.4",
-    "check-engine": "^1.10.1",
-    "node-sass": "^7.0.1",
-    "pa11y-ci": "^2.1.1",
-    "path": "^0.12.7",
-    "snyk": "^1.168.0",
-    "webpack": "^3.5.2"
-  },
-  "engines": {
-    "node": "14.x || 16.x",
-    "npm": "7.x || 8.x"
-  },
-  "dependencies": {
-    "@financial-times/dotcom-server-handlebars": "3.0.0",
-    "handlebars": "^4.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
-      "pre-commit": "node_modules/.bin/secret-squirrel",
-      "pre-push": "make verify -j3"
-    }
-  },
-  "volta": {
-    "node": "16.14.0",
-    "npm": "7.24.2"
-  }
+	"name": "n-newsletter-signup",
+	"version": "1.0.0",
+	"description": "",
+	"main": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepare": "npx snyk protect || npx snyk protect -d || true",
+		"preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Financial-Times/n-newsletter-signup.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/n-newsletter-signup/issues"
+	},
+	"homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
+	"devDependencies": {
+		"@financial-times/n-express": "^21.0.9",
+		"@financial-times/n-gage": "^8.2.0",
+		"bower": "^1.8.8",
+		"bower-resolve-webpack-plugin": "^1.0.4",
+		"check-engine": "^1.10.1",
+		"node-sass": "^7.0.1",
+		"pa11y-ci": "^2.1.1",
+		"path": "^0.12.7",
+		"snyk": "^1.168.0",
+		"webpack": "^3.5.2"
+	},
+	"engines": {
+		"node": "14.x || 16.x",
+		"npm": "7.x || 8.x"
+	},
+	"dependencies": {
+		"@financial-times/dotcom-server-handlebars": "3.0.0",
+		"@financial-times/n-myft-ui": "^28.0.0",
+		"ftdomdelegate": "^5.0.0",
+		"handlebars": "^4.1.2",
+		"superstore-sync": "^2.1.1"
+	},
+	"peerDependencies": {
+		"n-ui-foundations": "^9.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
+			"pre-commit": "node_modules/.bin/secret-squirrel",
+			"pre-push": "make verify -j3"
+		}
+	},
+	"volta": {
+		"node": "16.14.0",
+		"npm": "7.24.2"
+	}
 }
