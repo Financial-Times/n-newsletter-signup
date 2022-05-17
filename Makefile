@@ -13,7 +13,7 @@ demo-build:
 	@mkdir bower_components/n-newsletter-signup
 	@cp -r templates/ bower_components/n-newsletter-signup/templates/
 	@webpack
-	@node-sass demos/src/main.scss public/main.css --include-path bower_components
+	@sass demos/src/main.scss public/main.css --load-path bower_components --load-path node_modules
 	@$(DONE)
 
 demo: demo-build
