@@ -39,6 +39,7 @@
 		"@financial-times/n-myft-ui": "^28.0.0",
 		"ftdomdelegate": "^5.0.0",
 		"handlebars": "^4.1.2",
+		"js-cookie": "^3.0.1",
 		"superstore-sync": "^2.1.1"
 	},
 	"peerDependencies": {
