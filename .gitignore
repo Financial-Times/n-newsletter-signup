@@ -1,6 +1,6 @@
 node_modules/
-bower_components/
 public/
 .stylelintrc
 .editorconfig
 .eslintrc.js
+.vscode

@@ -9,11 +9,11 @@ node_modules/@financial-times/n-gage/index.mk:
 IGNORE_A11Y = true
 
 demo-build:
-	@rm -rf bower_components/n-newsletter-signup
-	@mkdir bower_components/n-newsletter-signup
-	@cp -r templates/ bower_components/n-newsletter-signup/templates/
+	@rm -rf node_modules/@financial-times/n-newsletter-signup
+	@mkdir node_modules/@financial-times/n-newsletter-signup
+	@cp -r templates node_modules/@financial-times/n-newsletter-signup/templates/
+	@sass demos/src/main.scss public/main.css --load-path node_modules
 	@webpack
-	@node-sass demos/src/main.scss public/main.css --include-path bower_components
 	@$(DONE)
 
 demo: demo-build
