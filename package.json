@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
   "devDependencies": {
     "@financial-times/n-express": "^21.0.9",
-    "@financial-times/n-gage": "^8.2.0",
+    "@financial-times/n-gage": "^9.0.0",
     "@financial-times/o-labels": "^6.2.2",
     "check-engine": "^1.10.1",
     "sass": "^1.51.0",
