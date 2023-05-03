@@ -1,0 +1,23 @@
+plugins:
+  - "@dotcom-tool-kit/component"
+  - "@dotcom-tool-kit/webpack"
+  - "@dotcom-tool-kit/node"
+  - "@dotcom-tool-kit/jest"
+hooks:
+  test:local:
+    - JestLocal
+  build:local:
+    - WebpackDevelopment
+  run:local:
+    - Node
+options:
+  "@dotcom-tool-kit/circleci":
+    nodeVersion: 16.14.0
+  "@dotcom-tool-kit/vault":
+    team: "next"
+    app: "next-newsletter-signup"
+  "@dotcom-tool-kit/node":
+    entry: "./demos/app.js"
+    ports: [5005]
+  "@dotcom-tool-kit/webpack":
+    configPath: "./webpack.config.js"
