@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "8.0.0",
-    "@financial-times/n-myft-ui": "^28.0.6",
+    "@financial-times/n-myft-ui": "^30.0.0",
     "handlebars": "^4.1.2",
     "superstore-sync": "^2.1.1"
   },
