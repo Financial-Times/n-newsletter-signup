@@ -1,0 +1,14 @@
+plugins:
+  - "@dotcom-tool-kit/component"
+  - "@dotcom-tool-kit/webpack"
+  - "@dotcom-tool-kit/jest"
+hooks:
+  test:local:
+    - JestLocal
+  build:local:
+    - WebpackDevelopment
+options:
+  "@dotcom-tool-kit/circleci":
+    nodeVersion: 16.14.0
+  "@dotcom-tool-kit/webpack":
+    configPath: "./webpack.config.js"

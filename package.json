@@ -4,9 +4,25 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "dotcom-tool-kit test:local",
     "prepare": "npx snyk protect || npx snyk protect -d || true",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
+    "webpack-styles-dev": "webpack --config webpack.styles.config.js --env development --mode development",
+    "build-demo": "npm run webpack-styles-dev && npm run build",
+    "start": "dotcom-tool-kit run:local",
+    "build": "dotcom-tool-kit build:local",
+    "demo": "npm run build-demo && node demos/app"
+  },
+  "jest": {
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(?:@financial\\-times/o\\-myft\\-ui)/)",
+      "/node_modules/(?!(?:@financial\\-times/o\\-utils)/)",
+      "/node_modules/(?!(?:n\\-ui\\-foundations)/)"
+    ],
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -19,15 +35,26 @@
   },
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.21.5",
+    "@dotcom-tool-kit/component": "^3.1.1",
+    "@dotcom-tool-kit/jest": "^3.1.0",
+    "@dotcom-tool-kit/node": "^3.1.0",
+    "@dotcom-tool-kit/pa11y": "^0.4.1",
+    "@dotcom-tool-kit/vault": "^3.1.0",
+    "@dotcom-tool-kit/webpack": "^3.1.0",
     "@financial-times/n-express": "^21.0.9",
-    "@financial-times/n-gage": "^8.2.0",
     "@financial-times/o-labels": "^6.2.2",
+    "babel-jest": "^29.5.0",
     "check-engine": "^1.10.1",
-    "sass": "^1.51.0",
+    "css-loader": "^6.7.3",
+    "dotcom-tool-kit": "^3.1.1",
+    "jest-axe": "^7.0.1",
+    "mini-css-extract-plugin": "^2.7.5",
     "pa11y-ci": "^2.1.1",
     "path": "^0.12.7",
-    "snyk": "^1.168.0",
-    "webpack": "^3.5.2"
+    "sass": "^1.51.0",
+    "sass-loader": "^13.2.2",
+    "snyk": "^1.168.0"
   },
   "peerDependencies": {
     "@financial-times/o-spacing": "^3.0.0",
@@ -40,13 +67,13 @@
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "3.0.0",
     "@financial-times/n-myft-ui": "^28.0.6",
-    "superstore-sync": "^2.1.1",
-    "handlebars": "^4.1.2"
+    "handlebars": "^4.1.2",
+    "superstore-sync": "^2.1.1"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
-      "pre-commit": "node_modules/.bin/secret-squirrel",
+      "commit-msg": "dotcom-tool-kit git:commitmsg",
+      "pre-commit": "dotcom-tool-kit git:precommit && secret-squirrel",
       "pre-push": "make verify -j3"
     }
   },

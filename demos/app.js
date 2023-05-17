@@ -2,13 +2,12 @@
 
 const express = require('@financial-times/n-express');
 const fixtures = require('./fixtures.json');
-const chalk = require('chalk');
-const errorHighlight = chalk.bold.red;
-const highlight = chalk.bold.green;
 
 const { PageKitHandlebars, helpers } = require('@financial-times/dotcom-server-handlebars');
 const handlebars = require('handlebars');
 const path = require('path');
+const fs = require('fs');
+const glob = require('glob');
 
 const app = module.exports = express({
 	name: 'public',
@@ -28,6 +27,16 @@ const app = module.exports = express({
 
 app.set('views', __dirname);
 app.set('view engine', '.html');
+
+const templatePaths = glob.sync(path.resolve(__dirname, '../templates/**/*.html'));
+
+// Read and register templates and partials
+templatePaths.forEach(filePath => {
+	const fileContent = fs.readFileSync(filePath, 'utf8');
+	const relativePath = path.relative(path.resolve(__dirname, '../templates'), filePath);
+	const partialName = 'n-newsletter-signup/templates/' + relativePath.replace('.html', '');
+	handlebars.registerPartial(partialName, fileContent);
+});
 
 app.engine('.html', new PageKitHandlebars({
 	cache: false,
@@ -80,25 +89,9 @@ app.post('/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/00
 	res.json(data);
 });
 
-function runPa11yTests () {
-	const spawn = require('child_process').spawn;
-	const pa11y = spawn('pa11y-ci');
+const port = 5005;
 
-	pa11y.stdout.on('data', (data) => {
-		console.log(highlight(`${data}`)); //eslint-disable-line
-	});
-
-	pa11y.stderr.on('data', (error) => {
-		console.log(errorHighlight(`${error}`)); //eslint-disable-line
-	});
-
-	pa11y.on('close', (code) => {
-		process.exit(code);
-	});
-}
-
-const listen = app.listen(5005);
-
-if (process.env.PA11Y === 'true') {
-	listen.then(runPa11yTests);
-}
+app.listen(port, () => {
+	console.log(`Demo is now running on port ${port}.`); // eslint-disable-line no-console
+	console.log(`To access it, visit http://localhost:${port}`); // eslint-disable-line no-console
+});

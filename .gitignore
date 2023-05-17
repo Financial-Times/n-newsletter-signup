@@ -4,3 +4,4 @@ public/
 .editorconfig
 .eslintrc.js
 .vscode
+.DS_Store

@@ -58,9 +58,9 @@ store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now())
 ```
 
 ## Demo page
-`$ make demo`: Serves examples of the component locally (`http://localhost:5005`), using dummy data and in isolation from an app.
+`$ npm run demo`: Serves examples of the component locally (`http://localhost:5005`), using dummy data and in isolation from an app.
 
 This is done on a simple express app which renders a single demo page that calls the partials to exhibit, populating them with data from a fixture.
 
-## Pa11y
-`$ make a11y`: Serves page of demo components, on which it runs [Pa11y](http://pa11y.org/) accessibility tests (errors flagging up accessibility infringements), which will also be run as part of the Continuous Integration (CI) process.
+## Jest & Pa11y
+`$ npm run test`: Runs the Jest test suite. This includes a [Pa11y](http://pa11y.org/) accessibility test against the html templates (errors flagging up accessibility infringements), which will also be run as part of the Continuous Integration (CI) process.
