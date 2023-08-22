@@ -9,6 +9,8 @@ hooks:
     - WebpackDevelopment
 options:
   "@dotcom-tool-kit/circleci":
-    nodeVersion: 16.14.0
+    nodeVersion:
+      - '18.17'
+      - '16.20'
   "@dotcom-tool-kit/webpack":
     configPath: "./webpack.config.js"
