@@ -5,7 +5,10 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:16.14.0
+      - image: cimg/node:18.17
+  node16_20:
+    docker:
+      - image: cimg/node:16.20
 jobs:
   checkout:
     docker:
@@ -31,33 +34,47 @@ workflows:
           filters:
             branches:
               only: /(^renovate-.*|^nori/.*)/
-            tags:
-              only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/setup:
+          name: tool-kit/setup-<< matrix.executor >>
           requires:
             - checkout
             - waiting-for-approval
-          executor: node
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/build:
+          name: tool-kit/build-<< matrix.executor >>
           requires:
-            - tool-kit/setup
-          executor: node
+            - tool-kit/setup-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/test:
+          name: tool-kit/test-<< matrix.executor >>
           requires:
-            - tool-kit/build
-          executor: node
+            - tool-kit/build-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/publish-tag:
           requires:
-            - tool-kit/test
+            - tool-kit/test-node
+          name: tool-kit/publish-tag-node
           executor: node
           filters:
             tags:
@@ -77,14 +94,29 @@ workflows:
     jobs:
       - checkout
       - tool-kit/setup:
+          name: tool-kit/setup-<< matrix.executor >>
           requires:
             - checkout
-          executor: node
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
       - tool-kit/build:
+          name: tool-kit/build-<< matrix.executor >>
           requires:
-            - tool-kit/setup
-          executor: node
+            - tool-kit/setup-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
       - tool-kit/test:
+          name: tool-kit/test-<< matrix.executor >>
           requires:
-            - tool-kit/build
-          executor: node
+            - tool-kit/build-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node16_20
