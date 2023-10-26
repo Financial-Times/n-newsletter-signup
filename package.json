@@ -35,7 +35,7 @@
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
-    "@dotcom-tool-kit/component": "^3.1.8",
+    "@dotcom-tool-kit/component": "^4.0.0",
     "@dotcom-tool-kit/jest": "^3.2.0",
     "@dotcom-tool-kit/node": "^3.2.1",
     "@dotcom-tool-kit/pa11y": "^0.4.4",
