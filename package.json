@@ -35,18 +35,20 @@
   "homepage": "https://github.com/Financial-Times/n-newsletter-signup#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
-    "@dotcom-tool-kit/component": "^4.0.0",
-    "@dotcom-tool-kit/jest": "^3.2.0",
-    "@dotcom-tool-kit/node": "^3.2.1",
-    "@dotcom-tool-kit/pa11y": "^0.4.4",
-    "@dotcom-tool-kit/vault": "^3.1.3",
-    "@dotcom-tool-kit/webpack": "^3.1.4",
+    "@dotcom-tool-kit/component": "^4.0.4",
+    "@dotcom-tool-kit/jest": "^3.2.2",
+    "@dotcom-tool-kit/lint-staged-npm": "^3.1.5",
+    "@dotcom-tool-kit/node": "^3.3.6",
+    "@dotcom-tool-kit/pa11y": "^0.4.6",
+    "@dotcom-tool-kit/secret-squirrel": "^2.1.4",
+    "@dotcom-tool-kit/vault": "^3.1.6",
+    "@dotcom-tool-kit/webpack": "^3.1.6",
     "@financial-times/n-express": "^28.0.1",
     "@financial-times/o-labels": "^6.2.2",
     "babel-jest": "^29.5.0",
     "check-engine": "^1.10.1",
     "css-loader": "^6.7.3",
-    "dotcom-tool-kit": "^3.2.1",
+    "dotcom-tool-kit": "^3.3.7",
     "jest-axe": "^7.0.1",
     "mini-css-extract-plugin": "^2.7.5",
     "pa11y-ci": "^2.1.1",
@@ -72,11 +74,14 @@
   "husky": {
     "hooks": {
       "commit-msg": "dotcom-tool-kit git:commitmsg",
-      "pre-commit": "dotcom-tool-kit git:precommit && secret-squirrel",
-      "pre-push": "make verify -j3"
+      "pre-commit": "dotcom-tool-kit git:precommit",
+      "pre-push": "npm run test"
     }
   },
   "volta": {
     "node": "18.17.1"
+  },
+  "lint-staged": {
+    "**/*.js": "dotcom-tool-kit format:staged test:staged --"
   }
 }
