@@ -2,15 +2,20 @@ plugins:
   - "@dotcom-tool-kit/component"
   - "@dotcom-tool-kit/webpack"
   - "@dotcom-tool-kit/jest"
+  - "@dotcom-tool-kit/secret-squirrel"
+  - "@dotcom-tool-kit/lint-staged-npm"
 hooks:
   test:local:
     - JestLocal
   build:local:
     - WebpackDevelopment
+  git:precommit:
+    - SecretSquirrel
+    - LintStaged
 options:
   "@dotcom-tool-kit/circleci":
     nodeVersion:
-      - '18.17'
-      - '16.20'
+      - "18.17"
+      - "16.20"
   "@dotcom-tool-kit/webpack":
     configPath: "./webpack.config.js"
