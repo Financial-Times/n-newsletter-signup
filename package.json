@@ -75,7 +75,7 @@
     "hooks": {
       "commit-msg": "dotcom-tool-kit git:commitmsg",
       "pre-commit": "dotcom-tool-kit git:precommit",
-      "pre-push": "make verify -j3"
+      "pre-push": "npm run test"
     }
   },
   "volta": {
