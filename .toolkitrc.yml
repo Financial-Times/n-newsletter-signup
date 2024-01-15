@@ -2,7 +2,6 @@ plugins:
   - "@dotcom-tool-kit/component"
   - "@dotcom-tool-kit/webpack"
   - "@dotcom-tool-kit/jest"
-  - "@dotcom-tool-kit/secret-squirrel"
   - "@dotcom-tool-kit/lint-staged-npm"
 hooks:
   test:local:
@@ -10,7 +9,6 @@ hooks:
   build:local:
     - WebpackDevelopment
   git:precommit:
-    - SecretSquirrel
     - LintStaged
 options:
   "@dotcom-tool-kit/circleci":
