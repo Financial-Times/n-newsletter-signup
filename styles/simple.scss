@@ -1,18 +1,136 @@
 .n-newsletter-signup--simple {
-	display: block;
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
 	border: 0;
-	.n-newsletter-signup__description {
-		margin: 0 oSpacingByIncrement(5) 0 0;
-		font-weight: 600;
-		vertical-align: middle;
+	gap: 20px;
+	padding-top: 20px;
+	background-color: oColorsByName("white-80");
+
+	@include oGridRespondTo($from: S, $until: M) {
+		padding-left: 24px;
+		padding-bottom: 0;
 	}
+
+	@include oGridRespondTo($from: M) {
+		padding-left: 44px;
+		align-items: center;
+		padding-bottom: 20px;
+	}
+
+	.n-newsletter-signup__card_content {
+		display: flex;
+		padding-left: 0;
+
+		@include oGridRespondTo($from: S, $until: M) {
+			flex-direction: column;
+			align-items: start;
+		}
+
+		@include oGridRespondTo($from: M) {
+			flex-direction: row;
+			align-items: center;
+
+		}
+
+		h1 {
+			padding-left: 0;
+		}
+
+		.n-newsletter-signup__body {
+			@include oTypographySans($scale: 0);
+			color: oColorsByName('black-80');
+			display: inline-block;
+
+			@include oGridRespondTo($from: S, $until: M) {
+				width: fit-content;
+			}
+
+			@include oGridRespondTo($from: M) {
+				width: 70%;
+			}
+		}
+	}
+
+	.n-newsletter-signup__top-meta {
+		top: 0;
+		right: 0;
+	}
+
+
+
+	img {
+		max-width: 100%;
+	}
+
+	.newsletter__flex-child-left {
+		position: relative;
+		max-width: 158px;
+		max-height: 89px;
+
+		@include oGridRespondTo($from: M) {
+			overflow: hidden;
+		}
+
+		@include oGridRespondTo($until: M) {
+			flex: 0 0 30%;
+			text-align: center;
+			color: oColorsByName('claret');
+
+		}
+	}
+
+	.n-newsletter-signup__heading {
+		@include oTypographyDisplay($scale: 2, $weight: 'bold');
+
+		display: inline-block;
+		align-self: flex-end;
+		margin: 0;
+
+		// for IE<11
+		max-width: 100%;
+		flex-shrink: 1;
+		padding-top: 0;
+		line-height: 30px;
+
+		@include oGridRespondTo($from: M, $until: XL) {
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+		@include oGridRespondTo($until: S) {
+			font-size: 40px;
+			line-height: 40px;
+		}
+
+		@include oGridRespondTo($from: S, $until: M) {
+			font-size: 20px;
+			line-height: normal;
+		}
+
+	}
+
+	.n-newsletter-signup__description {
+		@include oTypographySerif($scale: 1);
+		display: block;
+		flex-grow: 1;
+		font-family: Metric;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 16px;
+		color: oColorsByName("black-80");
+
+		@include oGridRespondTo($from: S, $until: M) {
+			margin-top: 0;
+		}
+	}
+
 	.n-newsletter-signup__form {
 		display: inline-block;
 	}
+
 	.n-newsletter-signup__submit {
-		@include oButtonsContent($opts: (
-			'type': 'primary'
-		), $include-base-styles: false);
 		margin-left: 0;
 	}
 }

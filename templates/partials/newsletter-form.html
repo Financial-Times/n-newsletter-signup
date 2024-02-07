@@ -1,51 +1,61 @@
 <form
-	class="n-newsletter-signup__form"
-	data-component="n-newsletter-signup__form"
-	data-newsletter-id="{{id}}"
-	action="
-		{{~#if userIsSubscribed~}}
-			{{unsubscribeAction}}
-		{{~else~}}
-			{{subscribeAction}}
-		{{~/if~}}
-		"
-	method="POST"
-	>
-	{{> n-myft-ui/components/csrf-token/input}}
-	<button
-		class="n-newsletter-signup__submit"
-		aria-label="
-			{{~#if userIsSubscribed~}}
-				Unsubscribe from {{name}}
-			{{~else~}}
-				One-Click Sign Up subscribe to {{name}}
-			{{~/if~}}
-		"
-		title="
-			{{~#if userIsSubscribed~}}
-				Unsubscribe from {{name}}
-			{{~else~}}
-				Subscribe to {{name}}
-			{{~/if~}}
-		"
-		data-trackable="
-			{{~#if userIsSubscribed~}}
-				newsletter-unsubscribe
-			{{~else~}}
-				newsletter-subscribe
-			{{~/if~}}
-		"
-		type="submit"
-		aria-describedby="feedback-message__newsletter-{{id}}"
-		{{#if updatingPreference}}disabled="disabled" aria-disabled="true"{{/if}}
-		>
-
-			{{#if updatingPreference}}
-				Updating<span class="o-normalise-visually-hidden">&nbsp;{{name}} subscription</span>…
-			{{else if userIsSubscribed}}
-				Unsubscribe<span class="o-normalise-visually-hidden">&nbsp;from {{name}}</span>
-			{{else}}
-				One-Click Sign Up<span class="o-normalise-visually-hidden">&nbsp;to {{name}}</span>
-			{{/if}}
-		</button>
+  class="n-newsletter-signup__form"
+  data-component="n-newsletter-signup__form"
+  data-newsletter-id="{{id}}"
+  action="
+    {{~#if userIsSubscribed~}}
+      {{unsubscribeAction}}
+    {{~else~}}
+      {{subscribeAction}}
+    {{~/if~}}
+  "
+  method="POST"
+>
+  {{> n-myft-ui/components/csrf-token/input}}
+<div
+  class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
+  data-ft-concept-button-aria-live-pressed-text="Now following {{name}} on my FT"
+  data-ft-concept-button-aria-live-unpressed-text="No longer following {{name}} on my FT"
+  data-ft-concept-button-aria-label-pressed-text="Stop following {{name}} on my FT"
+  data-ft-concept-button-aria-label-unpressed-text="Follow {{name}} on my FT"
+  data-o-component="ft-concept-button"
+>
+    <div class="ft-concept-button__announcement" aria-live="assertive"></div>
+    <button
+      class="ft-concept-button__button n-newsletter-signup__submit"
+      aria-pressed="false"
+      aria-label="
+        {{~#if userIsSubscribed~}}
+          Unsubscribe from {{name}}
+        {{~else~}}
+          Sign Up subscribe to {{name}}
+        {{~/if~}}
+      "
+      title="
+        {{~#if userIsSubscribed~}}
+          Unsubscribe from {{name}}
+        {{~else~}}
+          Subscribe to {{name}}
+        {{~/if~}}
+      "
+      data-trackable="
+        {{~#if userIsSubscribed~}}
+          newsletter-unsubscribe
+        {{~else~}}
+          newsletter-subscribe
+        {{~/if~}}
+      "
+      type="submit"
+      aria-describedby="feedback-message__newsletter-{{id}}"
+      {{#if updatingPreference}}disabled="disabled" aria-disabled="true"{{/if}}
+    >
+      {{#if updatingPreference}}
+        Updating<span class="o-normalise-visually-hidden">&nbsp;{{name}} subscription</span>…
+      {{else if userIsSubscribed}}
+        Unsubscribe<span class="o-normalise-visually-hidden">&nbsp;from {{name}}</span>
+      {{else}}
+        Sign Up<span class="o-normalise-visually-hidden">&nbsp;to {{name}}</span>
+      {{/if}}
+    </button>
+  </div>
 </form>

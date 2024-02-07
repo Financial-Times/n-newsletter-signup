@@ -33,7 +33,11 @@ export default class Feedback {
 
 	append () {
 		this.defaultAttributes();
-		this.parentHtml.appendChild(this.html);
+		if (this.parentHtml.nextSibling) {
+			this.parentHtml.parentNode.insertBefore(this.html, this.parentHtml.nextSibling);
+		} else {
+			this.parentHtml.parentNode.appendChild(this.html);
+		}
 	}
 
 	update (state) {

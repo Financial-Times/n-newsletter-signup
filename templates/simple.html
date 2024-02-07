@@ -1,9 +1,48 @@
-<section data-component="n-newsletter-signup" data-newsletter-id="{{id}}" data-newsletter-name="{{name}}" class="n-newsletter-signup n-newsletter-signup--simple" {{#if isPremium}}data-newsletter-is-premium{{/if}}>
-	<span class="n-newsletter-signup__description">Sign up to the {{name}} newsletter, {{frequency}} </span>
-
-	{{#if userNeedsToUpgrade}}
-		<a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade" data-trackable="newsletters-upgrade">Upgrade<span class="o-normalise-visually-hidden">&nbsp; your subscription to receive {{name}}</span></a>
-	{{else}}
-		{{> n-newsletter-signup/templates/partials/newsletter-form}}
-	{{/if}}
+<section data-component="n-newsletter-signup"
+    data-newsletter-id="{{id}}" 
+    data-newsletter-name="{{name}}" 
+    class="n-newsletter-signup n-newsletter-signup--simple" 
+    {{#if isPremium}}data-newsletter-is-premium{{/if}}
+>
+    {{#if imageUrl}}
+    <div class="newsletter__flex-child-left">
+        <picture>
+            <source srcSet="{{imageUrl}}" />
+            <img
+                src="{{imageUrl}}"
+                alt=""
+                data-component="newsletter-picture"
+            />
+        </picture>
+    </div>
+    {{/if}}
+    <div class="n-newsletter-signup__card_content">
+        <div>
+            <h2 class="n-newsletter-signup__heading">
+                {{name}}
+                <span class="o-normalise-visually-hidden">
+                    {{#if isPremium}}, premium{{/if}}
+                    {{#if frequency}}, {{frequency}}{{/if}}
+                </span>
+            </h2>
+            
+            {{#if isPremium}}
+                <span aria-hidden="true" class="n-newsletter-signup__top-meta o-labels o-labels--content-premium">Premium</span>
+            {{/if}}
+            
+            <div data-component="n-newsletter-signup__description" class="n-newsletter-signup__description">
+                <p class="n-newsletter-signup__body">{{description}}</p>
+            </div>
+        </div>
+        {{#if userNeedsToUpgrade}}
+            <a href="/products?location=/newsletters" class="n-newsletter-signup__upgrade ft-concept-button__link" data-trackable="newsletters-upgrade">
+                Upgrade
+                <span class="o-normalise-visually-hidden">
+                    &nbsp; your subscription to receive {{name}}
+                </span>
+            </a>
+        {{else}}
+            {{> n-newsletter-signup/templates/partials/newsletter-form}}
+        {{/if}}
+    </div>
 </section>

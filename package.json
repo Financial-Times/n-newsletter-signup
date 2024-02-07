@@ -49,6 +49,7 @@
     "css-loader": "^6.7.3",
     "dotcom-tool-kit": "^3.3.7",
     "jest-axe": "^7.0.1",
+    "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.7.5",
     "pa11y-ci": "^2.1.1",
     "path": "^0.12.7",
@@ -57,6 +58,8 @@
     "snyk": "^1.168.0"
   },
   "peerDependencies": {
+    "@financial-times/ft-concept-button": "^1.2.2",
+    "@financial-times/o-grid": "^6.1.5",
     "@financial-times/o-spacing": "^3.0.0",
     "n-ui-foundations": "^9.0.0"
   },
