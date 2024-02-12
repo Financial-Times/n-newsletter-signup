@@ -14,10 +14,10 @@
   {{> n-myft-ui/components/csrf-token/input}}
 <div
   class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
-  data-ft-concept-button-aria-live-pressed-text="Now following {{name}} on my FT"
-  data-ft-concept-button-aria-live-unpressed-text="No longer following {{name}} on my FT"
-  data-ft-concept-button-aria-label-pressed-text="Stop following {{name}} on my FT"
-  data-ft-concept-button-aria-label-unpressed-text="Follow {{name}} on my FT"
+  data-ft-concept-button-aria-live-pressed-text="Now following {{name}} newsletter"
+  data-ft-concept-button-aria-live-unpressed-text="No longer following {{name}} newsletter"
+  data-ft-concept-button-aria-label-pressed-text="Stop following {{name}} newsletter"
+  data-ft-concept-button-aria-label-unpressed-text="Follow {{name}} newsletter"
   data-o-component="ft-concept-button"
 >
     <div class="ft-concept-button__announcement" aria-live="assertive"></div>
@@ -28,14 +28,14 @@
         {{~#if userIsSubscribed~}}
           Unsubscribe from {{name}}
         {{~else~}}
-          Sign Up subscribe to {{name}}
+          Sign Up to {{name}}
         {{~/if~}}
       "
       title="
         {{~#if userIsSubscribed~}}
           Unsubscribe from {{name}}
         {{~else~}}
-          Subscribe to {{name}}
+          Sign Up to {{name}}
         {{~/if~}}
       "
       data-trackable="
@@ -50,7 +50,7 @@
       {{#if updatingPreference}}disabled="disabled" aria-disabled="true"{{/if}}
     >
       {{#if updatingPreference}}
-        Updating<span class="o-normalise-visually-hidden">&nbsp;{{name}} subscription</span>…
+        Updating<span class="o-normalise-visually-hidden">&nbsp;{{name}} newsletter preference</span>…
       {{else if userIsSubscribed}}
         Unsubscribe<span class="o-normalise-visually-hidden">&nbsp;from {{name}}</span>
       {{else}}

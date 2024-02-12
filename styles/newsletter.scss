@@ -12,95 +12,96 @@ $o-grid-gutter-small: oGridGutter(S);
 	width: 100%;
 	background-color: oColorsByName("white-80");
 	border-bottom: 1px solid oColorsByName('black-20');
-}
 
-.n-newsletter-signup__header {
-	display: flex;
-	position: relative;
-	box-sizing: border-box;
-	min-height: 100px;
-	padding: 5px 12px;
-	background-color: oColorsByName('claret');
-	color: white;
-}
 
-.n-newsletter-signup__heading {
-	@include oTypographyDisplay($scale: 2, $weight: 'bold');
-
-	display: inline-block;
-	align-self: flex-end;
-	margin: 0;
-
-	// for IE<11
-	max-width: 100%;
-	flex-shrink: 1;
-	padding-top: 20px;
-	// 😢
-	font-size: 30px;
-	line-height: 30px;
-
-	@include oGridRespondTo($from: M, $until: XL) {
-		font-size: 24px;
-		line-height: 28px;
+	.n-newsletter-signup__header {
+		display: flex;
+		position: relative;
+		box-sizing: border-box;
+		min-height: 100px;
+		padding: 5px 12px;
+		background-color: oColorsByName('claret');
+		color: white;
 	}
 
-	@include oGridRespondTo($until: S) {
-		font-size: 40px;
-		line-height: 40px;
+	.n-newsletter-signup__heading {
+		@include oTypographyDisplay($scale: 2, $weight: 'bold');
+
+		display: inline-block;
+		align-self: flex-end;
+		margin: 0;
+
+		// for IE<11
+		max-width: 100%;
+		flex-shrink: 1;
+		padding-top: 20px;
+		// 😢
+		font-size: 30px;
+		line-height: 30px;
+
+		@include oGridRespondTo($from: M, $until: XL) {
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+		@include oGridRespondTo($until: S) {
+			font-size: 40px;
+			line-height: 40px;
+		}
+
 	}
 
-}
+	.n-newsletter-signup__top-meta {
+		position: absolute;
+		top: 0;
+		right: 16px;
+	}
 
-.n-newsletter-signup__top-meta {
-	position: absolute;
-	top: 0;
-	right: 16px;
-}
+	.n-newsletter-signup__description {
+		@include oTypographySerif($scale: 1);
+		display: inline-block;
+		flex-grow: 1;
+		margin-top: 12px;
+	}
 
-.n-newsletter-signup__description {
-	@include oTypographySerif($scale: 1);
-	display: inline-block;
-	flex-grow: 1;
-	margin-top: 12px;
-}
+	.n-newsletter-signup__body {
+		@include oTypographySans($scale: 0);
+		color: oColorsByName('black-80');
+		display: inline-block;
+		flex-grow: 1;
+		margin: 5px;
+	}
 
-.n-newsletter-signup__body {
-	@include oTypographySans($scale: 0);
-	color: oColorsByName('black-80');
-	display: inline-block;
-	flex-grow: 1;
-	margin: 5px;
-}
+	.n-newsletter-signup__meta__frequency {
+		@include oTypographySans($scale: -2);
+		text-transform: uppercase;
+		color: oColorsByName('black-60');
+	}
 
-.n-newsletter-signup__meta__frequency {
-	@include oTypographySans($scale: -2);
-	text-transform: uppercase;
-	color: oColorsByName('black-60');
-}
+	.n-newsletter-signup__submit {
+		@include oButtonsContent($opts: ('type': 'primary'
+			), $include-base-styles: false);
+		margin: 16px 16px 16px 0;
+		min-height: 16px;
+		min-width: 70px;
+	}
 
-.n-newsletter-signup__submit {
-	@include oButtonsContent($opts: ('type': 'primary'
-		), $include-base-styles: false);
-	margin: 16px 16px 16px 0;
-	min-height: 16px;
-	min-width: 70px;
-}
+	.ft-concept-button--standard .ft-concept-button__button {
+		text-align: center;
+	}
 
-.ft-concept-button__button {
-	text-align: center !important;
-}
+	.n-newsletter-signup--subscribed .n-newsletter-signup__submit {
+		@include oButtonsContent($opts: ('type': 'primary',
+				'icon': 'tick',
+			), $include-base-styles: false);
+		margin: 16px 16px 16px 0;
+	}
 
-.n-newsletter-signup--subscribed .n-newsletter-signup__submit {
-	@include oButtonsContent($opts: ('type': 'primary',
-			'icon': 'tick',
-		), $include-base-styles: false);
-	margin: 16px 16px 16px 0;
-}
-
-.n-newsletter-signup__upgrade {
-	@include oButtonsContent($opts: ('type': 'secondary',
-		));
-	margin: 16px 16px 16px 0;
-	min-height: 16px;
-	min-width: fit-content;
+	.n-newsletter-signup__upgrade {
+		@include oButtonsContent($opts: ('type': 'secondary',
+			));
+		margin: 16px 16px 16px 0;
+		min-height: 16px;
+		min-width: fit-content;
+	}
 }

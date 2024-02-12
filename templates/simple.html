@@ -5,16 +5,17 @@
     {{#if isPremium}}data-newsletter-is-premium{{/if}}
 >
     {{#if imageUrl}}
-    <div class="newsletter__flex-child-left">
-        <picture>
-            <source srcSet="{{imageUrl}}" />
-            <img
-                src="{{imageUrl}}"
-                alt=""
-                data-component="newsletter-picture"
-            />
-        </picture>
-    </div>
+        <div class="n-newsletter-signup__flex-child-left">
+            <picture>
+                <source srcSet="{{imageUrl}}" />
+                <img
+                    src="{{imageUrl}}"
+                    alt=""
+                    class="n-newsletter-signup__flex-child-left__card_image"
+                    data-component="newsletter-picture"
+                />
+            </picture>
+        </div>
     {{/if}}
     <div class="n-newsletter-signup__card_content">
         <div>
@@ -27,7 +28,7 @@
             </h2>
             
             {{#if isPremium}}
-                <span aria-hidden="true" class="n-newsletter-signup__top-meta o-labels o-labels--content-premium">Premium</span>
+                <span class="n-newsletter-signup__top-meta o-labels o-labels--content-premium">Premium</span>
             {{/if}}
             
             <div data-component="n-newsletter-signup__description" class="n-newsletter-signup__description">
