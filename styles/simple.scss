@@ -45,7 +45,7 @@
 	}
 
 
-	.n-newsletter-signup__flex-child-left {
+	.n-newsletter-signup__card_image_container {
 		position: relative;
 		text-align: center;
 		color: oColorsByName('claret');
@@ -54,30 +54,25 @@
 		max-height: 89px;
 
 		@include oGridRespondTo($from: M) {
-			max-width: 158px;
-			max-height: 89px;
 			flex: 0 0 30%;
 			overflow: hidden;
 		}
 
-		&__card_image {
-			max-width: 100%;
-		}
+	}
+
+	.n-newsletter-signup__card_image {
+		max-width: 100%;
 	}
 
 	.n-newsletter-signup__heading {
 		@include oTypographyDisplay($scale: 2, $weight: 'bold');
-		
+
 		display: inline-block;
 		align-self: flex-end;
 		margin: 0;
-		font-size: 20px;
-		line-height: normal;
 		max-width: 100%;
 		flex-shrink: 1;
 		padding-top: 0;
-
-
 	}
 
 	.n-newsletter-signup__description {

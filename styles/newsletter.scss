@@ -21,7 +21,7 @@ $o-grid-gutter-small: oGridGutter(S);
 		min-height: 100px;
 		padding: 5px 12px;
 		background-color: oColorsByName('claret');
-		color: white;
+		color: oColorsByName("white");
 	}
 
 	.n-newsletter-signup__heading {
@@ -30,23 +30,19 @@ $o-grid-gutter-small: oGridGutter(S);
 		display: inline-block;
 		align-self: flex-end;
 		margin: 0;
-
-		// for IE<11
-		max-width: 100%;
+		max-width: fit-content;
 		flex-shrink: 1;
 		padding-top: 20px;
-		// 😢
-		font-size: 30px;
-		line-height: 30px;
+		line-height: 40px;
 
-		@include oGridRespondTo($from: M, $until: XL) {
+		@include oGridRespondTo($from: S) {
 			font-size: 24px;
 			line-height: 28px;
 		}
 
-		@include oGridRespondTo($until: S) {
-			font-size: 40px;
-			line-height: 40px;
+		@include oGridRespondTo($from: M) {
+			font-size: 30px;
+			line-height: 30px;
 		}
 
 	}
@@ -79,21 +75,18 @@ $o-grid-gutter-small: oGridGutter(S);
 	}
 
 	.n-newsletter-signup__submit {
-		@include oButtonsContent($opts: ('type': 'primary'
-			), $include-base-styles: false);
+		@include oButtonsContent($opts: ('type': 'primary'), $include-base-styles: false);
 		margin: 16px 16px 16px 0;
 		min-height: 16px;
 		min-width: 70px;
 	}
 
-	.ft-concept-button--standard .ft-concept-button__button {
+	.ft-concept-button--standard__button {
 		text-align: center;
 	}
 
-	.n-newsletter-signup--subscribed .n-newsletter-signup__submit {
-		@include oButtonsContent($opts: ('type': 'primary',
-				'icon': 'tick',
-			), $include-base-styles: false);
+	.n-newsletter-signup__submit--subscribed {
+		@include oButtonsContent($opts: ('type': 'primary', 'icon': 'tick'), $include-base-styles: false);
 		margin: 16px 16px 16px 0;
 	}
 

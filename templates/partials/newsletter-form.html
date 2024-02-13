@@ -11,13 +11,12 @@
   "
   method="POST"
 >
-  {{> n-myft-ui/components/csrf-token/input}}
 <div
   class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
-  data-ft-concept-button-aria-live-pressed-text="Now following {{name}} newsletter"
-  data-ft-concept-button-aria-live-unpressed-text="No longer following {{name}} newsletter"
-  data-ft-concept-button-aria-label-pressed-text="Stop following {{name}} newsletter"
-  data-ft-concept-button-aria-label-unpressed-text="Follow {{name}} newsletter"
+  data-ft-concept-button-aria-live-pressed-text="Subscribed to {{name}} newsletter"
+  data-ft-concept-button-aria-live-unpressed-text="Unsubscribed from {{name}} newsletter"
+  data-ft-concept-button-aria-label-pressed-text="Unsubscribe from {{name}} newsletter"
+  data-ft-concept-button-aria-label-unpressed-text="Subscribe to {{name}} newsletter"
   data-o-component="ft-concept-button"
 >
     <div class="ft-concept-button__announcement" aria-live="assertive"></div>
