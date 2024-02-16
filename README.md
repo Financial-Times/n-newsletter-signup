@@ -44,6 +44,7 @@ newsletterSignupInit();
 	* `frequency`
 	* `userIsSubscribed`
 	* `referenceId`: to jump to the newsletter
+	* `imageUrl` - (Optional for newsletters with images)
 
 :mag: Please view the source for more information.
 
@@ -58,7 +59,7 @@ store.set(`n-newsletter-signup.${this.newsletterId}.subscribedTime`, Date.now())
 ```
 
 ## Demo page
-`$ npm run demo`: Serves examples of the component locally (`http://localhost:5005`), using dummy data and in isolation from an app.
+`$ npm run demo`: Serves examples of the component locally (`http://localhost:5005?state=default`), using dummy data and in isolation from an app. use `defaultWithImage` as the state to view the card with image
 
 This is done on a simple express app which renders a single demo page that calls the partials to exhibit, populating them with data from a fixture.
 
