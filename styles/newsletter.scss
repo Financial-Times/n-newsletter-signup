@@ -33,16 +33,13 @@ $o-grid-gutter-small: oGridGutter(S);
 		max-width: fit-content;
 		flex-shrink: 1;
 		padding-top: 20px;
-		line-height: 40px;
 
 		@include oGridRespondTo($from: S) {
-			font-size: 24px;
-			line-height: 28px;
+			@include oTypographyDisplay($scale: 3, $weight: 'bold');
 		}
 
 		@include oGridRespondTo($from: M) {
-			font-size: 30px;
-			line-height: 30px;
+			@include oTypographyDisplay($scale: 4, $weight: 'bold');
 		}
 
 	}
