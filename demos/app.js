@@ -49,10 +49,12 @@ app.engine('.html', new PageKitHandlebars({
 app.use('/public', express.static(path.join(__dirname, '../public'), { redirect: false }));
 
 app.get('/', (req, res) => {
+	const state = req.query.state || 'default';
+	const cardState = fixtures[state];
 	res.render('demo', Object.assign({
 		title: 'Test App',
 		layout: 'demo-layout',
-	}, fixtures));
+	}, cardState));
 });
 
 app.post('/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe', (req, res) => {
