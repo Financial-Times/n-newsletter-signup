@@ -22,7 +22,11 @@
     <div class="ft-concept-button__announcement" aria-live="assertive"></div>
     <button
       class="ft-concept-button__button n-newsletter-signup__submit"
-      aria-pressed="false"
+      aria-pressed={{~#if userIsSubscribed~}}
+         "true"
+        {{~else~}}
+         "false"
+        {{~/if~}}
       aria-label="
         {{~#if userIsSubscribed~}}
           Unsubscribe from {{name}}
@@ -51,7 +55,7 @@
       {{#if updatingPreference}}
         Updating<span class="o-normalise-visually-hidden">&nbsp;{{name}} newsletter preference</span>…
       {{else if userIsSubscribed}}
-        Unsubscribe<span class="o-normalise-visually-hidden">&nbsp;from {{name}}</span>
+        Signed Up<span class="o-normalise-visually-hidden">&nbsp;from {{name}}</span>
       {{else}}
         Sign Up<span class="o-normalise-visually-hidden">&nbsp;to {{name}}</span>
       {{/if}}

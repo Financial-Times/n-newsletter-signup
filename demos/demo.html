@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>demo</title>
-		<link rel="stylesheet" href="/public/main.css">
-	</head>
-	<body>
-		<div class="o-grid-container o-grid-container--snappy">
-			<div class="o-grid-row">
-				<h1>n-newsletter-signup demo</h1>
-			</div>
-			<div class="o-grid-row">
-				<div data-o-grid-colspan="12 S6 M4 L3">
-					{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
-				</div>
-			</div>
 
+<head>
+	<title>demo</title>
+	<link rel="stylesheet" href="/public/main.css">
+</head>
+
+<body>
+	<div class="o-grid-container o-grid-container--snappy">
+		<div class="o-grid-row">
+			<h1>n-newsletter-signup demo</h1>
+		</div>
+		<div class="o-grid-row">
+			<div data-o-grid-colspan="12 S6 M4 L3" style="margin-bottom: 20px;">
+				{{#with fixtures.[0]}}
+				{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
+				{{/with}}
+			</div>
 
 			<h2>Simple inline</h2>
 
 			<div class="o-grid-row">
-				<div data-o-grid-colspan="12 L7 XLoffset1">
-					{{> n-newsletter-signup/templates/simple flags=@root.flags id=12346}}
+				{{#each fixtures}}
+				<div data-o-grid-colspan="12 L7 XLoffset1" style="margin-bottom: 20px;">
+					{{> n-newsletter-signup/templates/simple flags=@root.flags id=this.id}}
 				</div>
+				{{/each}}
 			</div>
 		</div>
-	</body>
-</html>
+</body>
 
+</html>
