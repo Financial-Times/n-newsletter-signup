@@ -17,17 +17,17 @@
 				{{> n-newsletter-signup/templates/newsletter flags=@root.flags}}
 				{{/with}}
 			</div>
-
-			<h2>Simple inline</h2>
-
-			<div class="o-grid-row">
-				{{#each fixtures}}
-				<div data-o-grid-colspan="12 L7 XLoffset1" style="margin-bottom: 20px;">
-					{{> n-newsletter-signup/templates/simple flags=@root.flags id=this.id}}
-				</div>
-				{{/each}}
-			</div>
 		</div>
+		<h2>Simple inline</h2>
+
+		<div class="o-grid-row">
+			{{#each fixtures}}
+			<div data-o-grid-colspan="12 L7 XLoffset1" style="margin-bottom: 20px;">
+				{{> n-newsletter-signup/templates/simple flags=@root.flags id=this.id}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
 </body>
 
 </html>
