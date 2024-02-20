@@ -44,6 +44,7 @@ newsletterSignupInit();
 	* `frequency`
 	* `userIsSubscribed`
 	* `referenceId`: to jump to the newsletter
+	* `imageUrl` - (Optional for newsletters with images)
 
 :mag: Please view the source for more information.
 

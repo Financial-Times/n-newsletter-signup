@@ -1,7 +1,10 @@
+$system-code: 'n-newsletter-signup';
+@import '@financial-times/ft-concept-button/main';
 @import '@financial-times/o-labels/main';
 @import '@financial-times/o-buttons/main';
-
 @import "n-ui-foundations/main";
 @import './styles/newsletter';
 @import './styles/feedback-messaging';
 @import './styles/simple';
+
+@include ftConceptButton();

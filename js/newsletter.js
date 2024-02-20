@@ -2,26 +2,29 @@ import { local as store } from 'superstore-sync';
 import { broadcast } from 'n-ui-foundations';
 import getToken from '@financial-times/n-myft-ui/myft/ui/lib/get-csrf-token';
 import Feedback from './feedback-messaging';
+import ConceptButton from "@financial-times/ft-concept-button";
 
 export default class Newsletter {
-	constructor (el) {
+	constructor(el) {
 		this.el = el;
 		this.newsletterName = el.dataset.newsletterName;
 		this.newsletterForm = el.querySelector('form');
 		this.newsletterId = el.dataset.newsletterId;
 		this.newsletterButton = this.el.querySelector('.n-newsletter-signup__submit');
-		this.feedback = new Feedback(this.newsletterForm, this.newsletterName, this.newsletterId);
+		this.feedback = new Feedback(this.el, this.newsletterName, this.newsletterId);
+		this.conceptButton =
+			ConceptButton.init(this.newsletterForm)[0] || ConceptButton.init(this.newsletterForm)
 		this.init();
 	}
 
-	init () {
+	init() {
 		this.newsletterForm.addEventListener('submit', (event) => {
 			event.preventDefault();
 			this.handleSubmit(event);
 		});
 	}
 
-	handleSubmit (event) {
+	handleSubmit(event) {
 		event.preventDefault();
 		this.el.setAttribute('aria-busy', 'true');
 		this.feedback.update('update');
@@ -37,13 +40,13 @@ export default class Newsletter {
 			}));
 	}
 
-	update (action) {
+	update(action) {
 		this.render(action);
 		this.feedback.update('success');
 		this.el.setAttribute('aria-busy', 'false');
 	}
 
-	callApi (url, action) {
+	callApi(url, action) {
 		const csrfToken = getToken();
 		const apiOptions = {
 			method: 'POST',
@@ -52,7 +55,7 @@ export default class Newsletter {
 				accept: 'application/json',
 				'content-type': 'application/json'
 			},
-			body: JSON.stringify({token: csrfToken})
+			body: JSON.stringify({ token: csrfToken })
 		};
 
 		return fetch(url, apiOptions)
@@ -74,7 +77,7 @@ export default class Newsletter {
 			});
 	}
 
-	render (action) {
+	render(action) {
 		let formAction;
 		let buttonAriaLabel;
 		let buttonTitle;
@@ -87,10 +90,11 @@ export default class Newsletter {
 			buttonTitle = this.newsletterButton.title.replace('Subscribe to', 'Unsubscribe from');
 			buttonDataTrackable = 'newsletter-unsubscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
-				'One-Click Sign Up',
-				'Subscribed'
+				'Sign Up',
+				'Signed Up'
 			);
-			this.el.classList.add('n-newsletter-signup--subscribed');
+			this.conceptButton.isPressed = !this.conceptButton.isPressed;
+
 		} else {
 			formAction = this.newsletterForm.action.replace('unsubscribe', 'subscribe');
 			buttonAriaLabel = this.newsletterButton.getAttribute('aria-label');
@@ -98,7 +102,7 @@ export default class Newsletter {
 			buttonDataTrackable = 'newsletter-subscribe';
 			buttonText = this.newsletterButton.innerHTML.replace(
 				/(Subscribed)|(Unsubscribe)/,
-				'One-Click Sign Up'
+				'Sign Up'
 			);
 			this.el.classList.remove('n-newsletter-signup--subscribed');
 		}
