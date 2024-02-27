@@ -68,7 +68,7 @@
     "npm": "7.x || 8.x || 9.x"
   },
   "dependencies": {
-    "@financial-times/dotcom-server-handlebars": "8.2.5",
+    "@financial-times/dotcom-server-handlebars": "9.3.4",
     "@financial-times/n-myft-ui": "^31.0.0",
     "handlebars": "^4.1.2",
     "superstore-sync": "^2.1.1"
